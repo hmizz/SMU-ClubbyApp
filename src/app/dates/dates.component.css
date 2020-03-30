@@ -1,0 +1,45 @@
+.dates-top {
+  height: 10vh;
+  width: 100%;
+  background-color: #007795;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+.date-filter,
+.club-filter {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  margin-right: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fefefe;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.date-filter:hover,
+.club-filter:hover {
+  background-color: #fa9600;
+}
+
+.date-filter img,
+.club-filter img {
+  margin-right: 10px;
+  fill: #fefefe;
+}
+
+.dates-bottom {
+  height: 25vh;
+  width: 100%;
+  background-color: #fa9600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+}

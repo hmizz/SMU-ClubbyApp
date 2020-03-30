@@ -1,0 +1,73 @@
+.btn {
+  margin: 10px 50px;
+  border-radius: 50px;
+}
+.card {
+  background-color: white;
+  height: fit-content;
+  margin: 4% 4%;
+}
+.card-title {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content {
+  padding: 50px;
+}
+
+.card-text-custom {
+  width: 100%;
+}
+
+.card-cta {
+  justify-content: space-around;
+}
+.card-cta img {
+  width: 90%;
+  object-fit: cover;
+}
+
+.card-bottom {
+  display: flex;
+}
+
+.card-sub-bold {
+  margin: 50px 30px 0 0;
+}
+
+.card-sub-bold h4 {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.btn--orange {
+  background-color: #fa9600;
+  border: 1px solid #fa9600;
+  -webkit-box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+}
+.btn--orange:hover {
+  transform: translate(0);
+  background-color: #fefefe;
+  color: #fa9600;
+  border: 1px solid #fa9600;
+}
+
+.btn--orange-outline {
+  -webkit-box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
+}
