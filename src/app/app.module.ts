@@ -17,7 +17,15 @@ import { CardsDeckComponent } from './cards-deck/cards-deck.component';
 import { FooterComponent } from './footer/footer.component';
 import { OwlcarouselComponent } from './owlcarousel/owlcarousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ClubsComponent } from './clubs/clubs.component';
+import {HttpClientModule} from '@angular/common/http';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -33,15 +41,22 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FooterComponent,
     OwlcarouselComponent,
     LoginComponent,
+    ClubsComponent,
+    EventsComponent,
     
   ],
   imports: [
     BrowserModule,
-    
     BrowserAnimationsModule,
     AppRoutingModule,
     CarouselModule,
-    NgbModule
+    NgbModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
