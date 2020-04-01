@@ -28,6 +28,30 @@ app.use('/api/clubs', (req, res, next) => {
         message : 'clubs sent succefully', 
         clubs: clubs 
     });
+    next();
+});
+
+app.use('/api/events', (req, res, next) => {
+    const events = [
+        {
+            id: 'nubvcu2092',
+            title: 'EventI',
+            Organizer: null,
+            date: '5/21/2020',
+            description: 'this Event is from node'
+        },
+        {
+            id: 'kzk652bu9gfd2',
+            title: 'first',
+            Organizer: null,
+            date: '5/21/2020',
+            description: 'this is comming from node'
+        }
+    ];
+    res.status(200).json({
+        message : 'events sent succefully', 
+        events: events
+    });
 });
 
 module.exports = app;
