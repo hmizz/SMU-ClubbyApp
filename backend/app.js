@@ -1,17 +1,28 @@
 const express = require('express');
+const bodayParser = require("body-parser");
 
 const app = express();
 
-app.use((req,res, next) => {
-    res.setHeader("Access-Control-Allow-Origin","*");
-    res.setHeader("Access-Control-Allow-Header",
-    "Origin, X-Requested-With, Content-Type, Accept");
+app.use(bodayParser.json());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept");
     res.setHeader("Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS");
+        "GET, POST, PATCH, DELETE, OPTIONS");
     next();
 })
 
-app.use('/api/clubs', (req, res, next) => {
+app.post("/api/clubs", (req, res, next) => {
+    const post = req.body;
+    console.log(post);
+    res.status(201).json({
+        message: 'club added successfully'
+    });
+});
+
+app.get('/api/clubs', (req, res, next) => {
     const clubs = [
         {
             id: 'nububybu23JJ2',
@@ -25,13 +36,13 @@ app.use('/api/clubs', (req, res, next) => {
         }
     ];
     res.status(200).json({
-        message : 'clubs sent succefully', 
-        clubs: clubs 
+        message: 'clubs sent succefully',
+        clubs: clubs
     });
     next();
 });
 
-app.use('/api/events', (req, res, next) => {
+app.get('/api/events', (req, res, next) => {
     const events = [
         {
             id: 'nubvcu2092',
@@ -49,7 +60,7 @@ app.use('/api/events', (req, res, next) => {
         }
     ];
     res.status(200).json({
-        message : 'events sent succefully', 
+        message: 'events sent succefully',
         events: events
     });
 });
