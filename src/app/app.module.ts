@@ -26,6 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { EventsComponent } from './events/events.component';
+import { EventSearchComponent } from './events/event-search/event-search.component';
+import { EventListComponent } from './events/event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { EventsComponent } from './events/events.component';
     LoginComponent,
     ClubsComponent,
     EventsComponent,
+    EventSearchComponent,
+    EventListComponent,
     
   ],
   imports: [
