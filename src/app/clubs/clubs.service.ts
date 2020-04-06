@@ -25,7 +25,11 @@ export class ClubsService {
 
   addClub(title: string, content: string) {
     const club: Club = {id: null, title: title, description: content};
-    this.clubs.push(club);
-    this.clubsUpdated.next([...this.clubs]);
+    this.http.post<{message: string}>('http://localhost:3000/api/clubs',club).subscribe((responseData) =>{
+      console.log(responseData.message);
+      this.clubs.push(club);
+      this.clubsUpdated.next([...this.clubs]);
+    } );
+
   }
 }
