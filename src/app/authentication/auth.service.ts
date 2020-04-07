@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  message: boolean;
   isAuthenticated = false;
   private token: string;
   private authStatusListener = new Subject<boolean>();
@@ -55,8 +56,12 @@ export class AuthService {
           this.isAuthenticated = true;
           this.authStatusListener.next(true);
           this.router.navigate(['/']);
+          this.message= true;
         }
-      });
+      }, (err) => {
+          this.message = false;
+      }
+      );
   }
 
   logout() {

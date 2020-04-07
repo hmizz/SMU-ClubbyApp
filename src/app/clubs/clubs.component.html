@@ -1,18 +1,17 @@
-<app-navbar></app-navbar>
 <br>
 <br>
 <div>
-<mat-accordion multi="true" *ngIf="clubs.length > 0">
-    <mat-expansion-panel *ngFor="let club of clubs">
+<mat-accordion multi="true">
+    <mat-expansion-panel>
       <mat-expansion-panel-header>
-        {{ club.title }}
+        
       </mat-expansion-panel-header>
-      <p>{{ club.description }}</p>
+      <p></p>
       <mat-action-row>
         <button mat-button color="primary">EDIT</button>
         <button mat-button color="warn">DELETE</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
-  <p class="info-text mat-body-1" *ngIf="clubs.length <= 0">No clubs added yet!</p>
+  <p class="info-text mat-body-1">No clubs added yet!</p>
 </div>

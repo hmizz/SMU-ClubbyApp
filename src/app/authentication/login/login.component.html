@@ -13,6 +13,7 @@
         <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
       </mat-form-field>
       <br>
+      <mat-error *ngIf="!message">Credentials are invalid</mat-error>
       <button mat-raised-button color="accent" class="button button4" type="submit">Login</button>
       <button mat-raised-button color="accent"  class="button button4" routerLink="/signup">Sign
         Up</button>
