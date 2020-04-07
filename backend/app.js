@@ -1,68 +1,38 @@
-const express = require('express');
-const bodayParser = require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+const clubsRoutes = require("./routes/clubs");
+const eventsRoutes = require("./routes/events");
+const userRoutes = require("./routes/users")
 
 const app = express();
 
-app.use(bodayParser.json());
+mongoose.connect("mongodb+srv://projectAdmin:strissbiss@issproject-wleiz.mongodb.net/ClubbyApp?retryWrites=true&w=majority")
+.then(() => {
+    console.log('Conneted to database');
+}).catch(() => {
+    console.log('Failed to Connet to database');
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader("Access-Control-Allow-Methods",
-        "GET, POST, PATCH, DELETE, OPTIONS");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+    );
     next();
-})
+  });
 
-app.post("/api/clubs", (req, res, next) => {
-    const post = req.body;
-    console.log(post);
-    res.status(201).json({
-        message: 'club added successfully'
-    });
-});
-
-app.get('/api/clubs', (req, res, next) => {
-    const clubs = [
-        {
-            id: 'nububybu23JJ2',
-            title: 'first',
-            description: 'this is coming from node'
-        },
-        {
-            id: 'kzk652bu9gfd2',
-            title: 'first',
-            description: 'this is comming from node'
-        }
-    ];
-    res.status(200).json({
-        message: 'clubs sent succefully',
-        clubs: clubs
-    });
-    next();
-});
-
-app.get('/api/events', (req, res, next) => {
-    const events = [
-        {
-            id: 'nubvcu2092',
-            title: 'EventI',
-            Organizer: null,
-            date: '5/21/2020',
-            description: 'this Event is from node'
-        },
-        {
-            id: 'kzk652bu9gfd2',
-            title: 'first',
-            Organizer: null,
-            date: '5/21/2020',
-            description: 'this is comming from node'
-        }
-    ];
-    res.status(200).json({
-        message: 'events sent succefully',
-        events: events
-    });
-});
+app.use("/api/clubs",clubsRoutes);
+app.use("/api/events",eventsRoutes);
+app.use("/api/user",userRoutes);
 
 module.exports = app;

@@ -1,7 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { FormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -18,7 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { OwlcarouselComponent } from './owlcarousel/owlcarousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ClubsComponent } from './clubs/clubs.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -26,6 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { EventsComponent } from './events/events.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
+import { AuthInterceptor } from './authentication/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { EventsComponent } from './events/events.component';
     LoginComponent,
     ClubsComponent,
     EventsComponent,
+    SignUpComponent,
     
   ],
   imports: [
@@ -50,6 +54,7 @@ import { EventsComponent } from './events/events.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     CarouselModule,
+    FormsModule,
     NgbModule,
     MatInputModule,
     MatCardModule,
@@ -58,7 +63,7 @@ import { EventsComponent } from './events/events.component';
     MatExpansionModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

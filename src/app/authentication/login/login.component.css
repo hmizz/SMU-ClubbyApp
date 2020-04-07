@@ -3,6 +3,13 @@
     text-align: center
 }
 
+mat-form-field {
+    width: 60%;
+  }
+  
+  mat-spinner {
+    margin: auto;
+  }
 
 .login{
     padding: 150px 50px;
@@ -12,7 +19,7 @@
 .login h1{
     color:white;
   }
-input[type=text]{
+input[type=email]{
     
     padding: 10px 30px;
     border-radius: 50px;
