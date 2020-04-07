@@ -29,6 +29,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { EventsComponent } from './events/events.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { AuthInterceptor } from './authentication/auth-interceptor';
+import { EventSearchComponent } from './events/event-search/event-search.component';
+import { EventListComponent } from './events/event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { AuthInterceptor } from './authentication/auth-interceptor';
     ClubsComponent,
     EventsComponent,
     SignUpComponent,
-    
+    EventSearchComponent,
+    EventListComponent,
   ],
   imports: [
     BrowserModule,
