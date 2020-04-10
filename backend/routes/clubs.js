@@ -7,7 +7,9 @@ const router = express.Router();
 router.post("", checkAuth, (req, res, next) => {
     const club = new Club({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        category: req.body.category,
+        event: []
     });
     club.save().then(createdClub => {
         res.status(201).json({
@@ -21,7 +23,7 @@ router.get("", (req, res, next) => {
     Club.find().then(documents => {
         res.status(200).json({
             message: 'clubs sent succefully',
-            clubs: {}
+            clubs: documents
         });
     });
 });

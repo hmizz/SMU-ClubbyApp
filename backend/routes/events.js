@@ -9,7 +9,9 @@ router.post("", (req, res, next) => {
         title: req.body.title,
         organizer: req.body.organizer,
         date: req.body.date,
-        description: req.body.description
+        location: req.body.location,
+        description: req.body.description,
+        topic: req.body.topic
     });
     event.save();
     res.status(201).json({
