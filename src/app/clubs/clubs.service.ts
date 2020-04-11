@@ -19,6 +19,8 @@ export class ClubsService {
           return {
             title: club.title,
             description: club.description,
+            category: club.category,
+            events: club.events,
             id: club._id
           };
         });
@@ -33,8 +35,8 @@ export class ClubsService {
     return this.clubsUpdated.asObservable();
   }
 
-  addClub(title: string, content: string) {
-    const club: Club = { id: null, title: title, description: content };
+  addClub(title: string, content: string, category:string) {
+    const club: Club = { id: null, title: title, description: content, category: category, events: null };
     this.http.post<{ message: string, clubId: string }>('http://localhost:3000/api/clubs', club)
       .subscribe((responseData) => {
         const id = responseData.clubId;
