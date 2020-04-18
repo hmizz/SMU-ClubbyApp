@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../authentication/auth.service';
 import { Subscription } from 'rxjs';
+import { ClubsService } from '../clubs/clubs.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private authListenerSubs: Subscription;
   username: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService ,private clubsService: ClubsService) { }
 
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
@@ -29,7 +30,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.username= this.authService.getUsername();
       });
   }
-
+  displayclubs(){
+    this.clubsService.getClubs();
+  }
 
 
 }

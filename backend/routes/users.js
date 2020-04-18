@@ -11,7 +11,8 @@ router.post("/signup", (req, res, next) => {
             const user = new User({
                 fullName: req.body.fullname,
                 email: req.body.email,
-                password: hash
+                password: hash,
+                type: "Standard"
             });
             user.save()
                 .then(result => {
@@ -26,7 +27,6 @@ router.post("/signup", (req, res, next) => {
                     });
                 });
         });
-
 });
 
 router.post("/login", (req, res, next) => {
@@ -60,4 +60,5 @@ router.post("/login", (req, res, next) => {
             });
         });
 });
+
 module.exports = router;

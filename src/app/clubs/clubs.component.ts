@@ -13,7 +13,7 @@ import { ClubsService } from "./clubs.service";
 
 export class ClubsComponent implements OnInit, OnDestroy  {
 
-  clubs: Club[] = [];
+  Clubs: Club[] = [];
   private clubsSub: Subscription;
   constructor(public clubsService: ClubsService) { }
 
@@ -24,10 +24,6 @@ export class ClubsComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
     this.clubsService.getClubs();
-    this.clubsSub = this.clubsService.getClubUpdateListener()
-      .subscribe((clubs: Club[]) => {
-        this.clubs = clubs;
-      });
   }
-
 }
+   
