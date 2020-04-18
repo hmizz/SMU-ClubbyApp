@@ -31,6 +31,7 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { AuthInterceptor } from './authentication/auth-interceptor';
 import { EventSearchComponent } from './events/event-search/event-search.component';
 import { EventListComponent } from './events/event-list/event-list.component';
+import { clubListComponent } from './clubs/club-list/club-list.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { EventListComponent } from './events/event-list/event-list.component';
     SignUpComponent,
     EventSearchComponent,
     EventListComponent,
+    clubListComponent,
+   
   ],
   imports: [
     BrowserModule,

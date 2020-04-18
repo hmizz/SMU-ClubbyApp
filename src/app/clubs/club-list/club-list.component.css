@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .info-text {
+    text-align: center;
+  }
+  .cards-wrapper{
+      margin-top: 100px;
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
+  }
+  .card {
+    display: flex;
+    justify-content: space-between;
+ }
+ .card-title{
+     font-size: large;
+     font-weight: bold;
+ }
+ .btn{
+    margin-left: 20px;
+ }
