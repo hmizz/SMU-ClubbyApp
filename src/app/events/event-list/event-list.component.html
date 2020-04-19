@@ -1,12 +1,62 @@
 <div class="form-group">
-    <button mat-raised-button color="warn" type="button" class="btn btn-warning"[routerLink]="['/createEvent']" id="new"> create event</button>
+    <button mat-raised-button color="warn" type="button" class="btn btn-warning" [routerLink]="['/createEvent']"
+        id="new"> create event</button>
 </div>
 
-<mat-accordion multi="true" *ngIf="events.length > 0">
+<!-- <mat-accordion multi="true" *ngIf="events.length > 0">
     <mat-expansion-panel *ngFor="let event of events">
         <mat-expansion-panel-header>
             {{event.title}}
         </mat-expansion-panel-header>
+        <p>{{event.organizer}}</p>
+        <p>{{event.date}}</p>
         <p>{{event.content}}</p>
+        <p>{{event.topic}}</p>
     </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion> -->
+<div class="cards-deck">
+    <div class="cards-wrapper" *ngFor="let event of events">
+        <div class="cards">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-3">
+                        <img src="../../assets/Events/Event1.png" class="card-img" alt="..." />
+                    </div>
+                    <div class="col-md-6 card-body">
+                        <div class=" card-content ">
+                            <h5 class="card-title">{{event.title}}</h5>
+                            <p class="card-text card-text-custom">{{event.description}}
+                                
+                            </p>
+                            <div class="card-bottom">
+                                <div class="card-sub-bold">
+                                    <h4>{{event.organizer}}</h4>
+                                    <small class="text-muted">{{event.topic}}</small>
+                                </div>
+                                <div class="card-sub-bold">
+                                    <h4>Location</h4>
+                                    <small class="text-muted">Olympsky</small>
+                                </div>
+                                <div class="card-sub-bold">
+                                    <h4>Date</h4>
+                                    <small class="text-muted">{{event.date}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex flex-column card-cta">
+                        <img src="../../assets/Logos/Enactus.jpg" alt="" />
+                        <div class="card-buttons">
+                            <button type="button" class="btn btn-primary btn--orange">
+                                Join Our Club
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn--orange-outline">
+                                Join the Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,30 +15,16 @@ router.post("", (req, res, next) => {
     });
     event.save();
     res.status(201).json({
-        message: 'club added successfully'
+        message: 'event added successfully'
     });
 });
 
 router.get("", (req, res, next) => {
-    const events = [
-        {
-            id: 'nubvcu2092',
-            title: 'EventI',
-            Organizer: null,
-            date: '5/21/2020',
-            description: 'this Event is from node'
-        },
-        {
-            id: 'kzk652bu9gfd2',
-            title: 'first',
-            Organizer: null,
-            date: '5/21/2020',
-            description: 'this is comming from node'
-        }
-    ];
-    res.status(200).json({
-        message: 'events sent succefully',
-        events: events
+    Event.find().then(documents => {
+        res.status(200).json({
+            message: 'events sent succefully',
+            events: documents
+        });
     });
 });
 

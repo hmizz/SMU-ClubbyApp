@@ -39,8 +39,8 @@ export class EventListService {
   }
   
 
-  addEvent(title: string, content: string) {
-    const event: Event = { id: null, title: title, organizer: null, date: null, description: content };
+  addEvent(title: string, organizer: string,date: string, content: string, ) {
+    const event: Event = { id: null, title: title, organizer: organizer, date: date,location: null, description: content, topic : null };
     this.http.post<{ message: string }>('http://localhost:3000/api/events', event).subscribe((responseData) => {
       console.log(responseData.message);
       this.events.push(event);
