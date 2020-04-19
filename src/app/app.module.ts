@@ -31,11 +31,8 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { AuthInterceptor } from './authentication/auth-interceptor';
 import { EventSearchComponent } from './events/event-search/event-search.component';
 import { EventListComponent } from './events/event-list/event-list.component';
-<<<<<<< HEAD
 import { CreateEventComponent } from './events/create-event/create-event.component';
-=======
 import { clubListComponent } from './clubs/club-list/club-list.component';
->>>>>>> 385708bb80e9104c71eeab1bf3d88737ea74f45b
 
 @NgModule({
   declarations: [
@@ -56,12 +53,9 @@ import { clubListComponent } from './clubs/club-list/club-list.component';
     SignUpComponent,
     EventSearchComponent,
     EventListComponent,
-<<<<<<< HEAD
     CreateEventComponent,
-=======
     clubListComponent,
    
->>>>>>> 385708bb80e9104c71eeab1bf3d88737ea74f45b
   ],
   imports: [
     BrowserModule,
