@@ -34,7 +34,6 @@ import { EventListComponent } from './events/event-list/event-list.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { clubListComponent } from './clubs/club-list/club-list.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +55,7 @@ import { clubListComponent } from './clubs/club-list/club-list.component';
     EventListComponent,
     CreateEventComponent,
     clubListComponent,
-  
+   
   ],
   imports: [
     BrowserModule,
