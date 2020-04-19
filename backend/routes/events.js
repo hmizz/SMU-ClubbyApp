@@ -15,7 +15,7 @@ router.post("", (req, res, next) => {
     });
     event.save();
     res.status(201).json({
-        message: 'club added successfully'
+        message: 'event added successfully'
     });
 });
 

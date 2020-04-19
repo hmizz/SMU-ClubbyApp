@@ -9,6 +9,7 @@ import { from } from 'rxjs';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
+  
 
   constructor(public eventListService: EventListService) { }
 
