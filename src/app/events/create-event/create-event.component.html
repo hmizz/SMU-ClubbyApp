@@ -1,22 +1,22 @@
-<mat-card>
+<form class="example-form">
     <form (submit)="onAddEvent(eventForm)" #eventForm="ngForm">
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
             <input matInput type="text" name="title" ngModel required placeholder="event title" minlength="3" #title="ngModel"> 
             <mat-error *ngIf="title.invalid">Please Enter a Title</mat-error> 
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
             <input matInput type="text" name="organizer" ngModel required placeholder="event organizer" minlength="3" #organizer="ngModel">
             <mat-error *ngIf="organizer.invalid" >please enter an organizer </mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
             <input matInput type="text" name="date" ngModel required placeholder="event date" minlength="3" #date="ngModel">
             <mat-error *ngIf="date.invalid">please enter a date</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="example-full-width">
             <textarea matInput rows="6" name="content" ngModel required placeholder="event content" #content="ngModel"></textarea>
         </mat-form-field>
         <button mat-raised-button color="accent" type="submit">Save event</button>
         
         <button mat-raised-button color="warn" type="submit" [routerLink]="['/eventlist']">See events</button>
     </form>
-</mat-card>
+</form>

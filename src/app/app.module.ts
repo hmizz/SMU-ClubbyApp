@@ -70,6 +70,7 @@ import { clubListComponent } from './clubs/club-list/club-list.component';
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule
+    
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
