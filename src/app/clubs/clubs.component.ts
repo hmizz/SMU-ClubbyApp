@@ -11,19 +11,17 @@ import { ClubsService } from "./clubs.service";
   styleUrls: ['./clubs.component.css']
 })
 
-export class ClubsComponent implements OnInit, OnDestroy  {
+export class ClubsComponent implements OnInit  {
 
   Clubs: Club[] = [];
   private clubsSub: Subscription;
   constructor(public clubsService: ClubsService) { }
 
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }
+
 
 
   ngOnInit(): void {
-    this.clubsService.getClubs();
+    
   }
 }
    

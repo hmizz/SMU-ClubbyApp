@@ -37,17 +37,17 @@ export class ClubsService {
     return this.clubsUpdated.asObservable();
   }
 
-  addClub(title: string, content: string, category:string) {
-    const club: Club = { id: null, title: title, description: content, category: category, events: null };
+  addClub(title: string, description: string, category:string) {
+    const club: Club = { id: null, title: title, description: description, category: category, events: null };
     this.http.post<{ message: string, clubId: string }>('http://localhost:3000/api/clubs', club)
       .subscribe((responseData) => {
-        const id = responseData.clubId;
-        club.id = id;
+        
         console.log(responseData.message);
         this.clubs.push(club);
         this.clubsUpdated.next([...this.clubs]);
       });
-
   }
+
+ 
  
 }

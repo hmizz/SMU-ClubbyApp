@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+    <mat-card>
+        <form (submit)="onAddClub(clubForm)" #clubForm="ngForm">
+            <mat-form-field>
+                <input matInput type="text" name="title" ngModel required placeholder="club title" minlength="3" #title="ngModel"> 
+                <mat-error *ngIf="title.invalid">Please Enter a Title</mat-error> 
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" name="category" ngModel required placeholder="club category" minlength="3" #category="ngModel">
+                <mat-error *ngIf="category.invalid" >please enter an category </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" name="description" ngModel required placeholder="club description" minlength="3" #description="ngModel">
+                <mat-error *ngIf="description.invalid">please enter a description</mat-error>
+            </mat-form-field>
+           
+            <button mat-raised-button color="accent" type="submit">Save club</button>
+            
+            <button mat-raised-button color="warn" type="submit" [routerLink]="['/Clublist']">See clubs</button>
+        </form>
+    </mat-card>
+</div>

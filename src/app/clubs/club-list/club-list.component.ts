@@ -9,7 +9,7 @@ import { ClubsService } from "../clubs.service";
   templateUrl: "./club-list.component.html",
   styleUrls: ["./club-list.component.css"]
 })
-export class clubListComponent implements OnInit, OnDestroy {
+export class clubListComponent implements OnInit{
   clubs: Club[]= [];
   private ClubsSub: Subscription;
 
@@ -23,7 +23,5 @@ export class clubListComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
-    this.ClubsSub.unsubscribe();
-  }
+ 
 }
