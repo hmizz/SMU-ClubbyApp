@@ -9,6 +9,8 @@ import {CreateEventComponent} from './events/create-event/create-event.component
 import {EventListComponent} from './events/event-list/event-list.component'
 import { from } from 'rxjs';
 import { ClubsComponent } from './clubs/clubs.component';
+import { CreateClubComponent } from './clubs/create-club/create-club.component';
+import { clubListComponent } from './clubs/club-list/club-list.component';
 
  const routes: Routes = [
   { path: '', component: BodyComponent, },
@@ -17,7 +19,9 @@ import { ClubsComponent } from './clubs/clubs.component';
   { path: 'clubs', component: ClubsComponent, },
   {path : 'events', component: EventsComponent},
   {path:'eventlist', component:EventListComponent},
-  {path:'createEvent', component:CreateEventComponent} 
+  {path:'createEvent', component:CreateEventComponent},
+  {path:'clublist', component:clubListComponent},
+  {path:'createclub', component:CreateClubComponent} 
  ];
 
  @NgModule({

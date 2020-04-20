@@ -4,7 +4,7 @@ const Club = require("../models/club");
 const checkAuth = require("../middleware/check-auth");
 const router = express.Router();
 
-router.post("", checkAuth, (req, res, next) => {
+router.post("",(req, res, next) => {
     const club = new Club({
         title: req.body.title,
         description: req.body.description,
