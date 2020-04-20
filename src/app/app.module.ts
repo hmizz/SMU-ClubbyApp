@@ -33,6 +33,9 @@ import { EventSearchComponent } from './events/event-search/event-search.compone
 import { EventListComponent } from './events/event-list/event-list.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { clubListComponent } from './clubs/club-list/club-list.component';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CreateClubComponent } from './clubs/create-club/create-club.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { clubListComponent } from './clubs/club-list/club-list.component';
     EventListComponent,
     CreateEventComponent,
     clubListComponent,
+    CreateClubComponent
     
     
    
