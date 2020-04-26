@@ -59,6 +59,9 @@ import { CreateClubComponent } from './clubs/create-club/create-club.component';
     CreateEventComponent,
     clubListComponent,
     CreateClubComponent
+    
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,6 @@ import { CreateClubComponent } from './clubs/create-club/create-club.component';
     HttpClientModule
     
   ],
- 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })

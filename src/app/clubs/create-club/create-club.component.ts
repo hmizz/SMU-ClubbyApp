@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ClubsService } from '../Clubs.service';
+import { ClubsService } from '../clubs.service';
 import { from } from 'rxjs';
 
 @Component({
