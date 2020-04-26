@@ -35,15 +35,22 @@
           </a>
         </li>
         <li class="nav-item" *ngIf="userIsAuthenticated">
-          <a class="nav-link" id="navbarDropdown" role="button">
-            <img src="../../assets/Icons/signup.svg" width="17px" alt="" />{{ username }}
-          </a>
-
-        </li>
-        <li class="nav-item" *ngIf="userIsAuthenticated">
-          <button mat-button (click)="onLogout()">Logout</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ username }}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" >Profile</a>
+              <a class="dropdown-item" routerLink="/createclub">Add Club</a>
+              <a class="dropdown-item" routerLink="/createEvent">AddEvent</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="onLogout()">Logout</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Example single danger button -->

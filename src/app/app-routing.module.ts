@@ -7,10 +7,10 @@ import { EventsComponent } from './events/events.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import {CreateEventComponent} from './events/create-event/create-event.component'
 import {EventListComponent} from './events/event-list/event-list.component'
-import { from } from 'rxjs';
 import { ClubsComponent } from './clubs/clubs.component';
 import { CreateClubComponent } from './clubs/create-club/create-club.component';
 import { clubListComponent } from './clubs/club-list/club-list.component';
+import { AuthGuard } from './authentication/auth.guard';
 
  const routes: Routes = [
   { path: '', component: BodyComponent, },
@@ -26,7 +26,8 @@ import { clubListComponent } from './clubs/club-list/club-list.component';
 
  @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 
 })
 export class AppRoutingModule { }

@@ -4,13 +4,14 @@ import { Subject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Club } from './club.model';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class ClubsService {
   private clubs: Club[] = [] ;
   private clubsUpdated = new Subject<Club[]>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router : Router) { }
 
   getClubs()  {
     
@@ -41,10 +42,10 @@ export class ClubsService {
     const club: Club = { id: null, title: title, description: description, category: category, events: null };
     this.http.post<{ message: string, clubId: string }>('http://localhost:3000/api/clubs', club)
       .subscribe((responseData) => {
-        
         console.log(responseData.message);
         this.clubs.push(club);
         this.clubsUpdated.next([...this.clubs]);
+        this.router.navigate(['/clubs']);
       });
   }
 

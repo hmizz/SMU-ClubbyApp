@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy,EventEmitter, Output} from '@angular/core'
 import { AuthService } from '../authentication/auth.service';
 import { Subscription, from } from 'rxjs';
 import { ClubsService } from '../clubs/clubs.service';
-import { Club} from '../clubs/club.model' 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -23,6 +22,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
   ngOnInit() {
+    this.userIsAuthenticated= this.authService.getIsAuth();
+    this.username = this.authService.getUsername();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {

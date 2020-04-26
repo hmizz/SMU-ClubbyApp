@@ -1,13 +1,11 @@
-.btn{
-    margin-left: 50px;
-    background-color: #008CBA;
-}
+
 .form-wrapper{
+    padding: 12px;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
-    background-color: #AAAAAA;
+    background-color: rgb(25, 118, 232);
 }
 .mat-card{
     background-color: #008CBA;
