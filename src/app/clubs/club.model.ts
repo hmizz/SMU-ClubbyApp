@@ -4,5 +4,4 @@ export class Club {
     description: string;
     category: string;
     events : [];
-
   }

@@ -14,7 +14,7 @@ export class EventListService {
   private events: Event[] = [];
   private eventsUpdated = new Subject<Event[]>();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router : Router) { }
 
   getEvents() {
     this.http.get<{ message: string, events: any }>('http://localhost:3000/api/events')
