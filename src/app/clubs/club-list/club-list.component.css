@@ -7,11 +7,12 @@
     text-align: center;
   }
   .cards-wrapper{
-      margin-top: 100px;
+    
       margin-left: 50px;
       margin-right: 50px;
       margin-bottom: 50px;
       display: flex;
+      flex-wrap: wrap;
       
       
   }
@@ -19,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     margin-right: 50px;
+    margin-bottom: 50px;
 
 
  }
@@ -32,4 +34,29 @@
  }
  .form-group{
    margin-top: 20px;
+ }
+ .searchbar{
+ 
+  width: 300px;
+  background-color: #f2f2f2;
+  border-radius: 0 50px 50px 0;
+  border: none;
+
+ }
+ .search{
+   margin-left: 50px;
+ 
+ }
+ .search-bar-container{
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
+
+
+ }
+ .search-label{
+  font-size: large;
+  font-weight: bold;
  }

@@ -1,4 +1,7 @@
-<form class="example-form">
+
+<div class="form-wrapper">
+
+
     <form (submit)="onAddEvent(eventForm)" #eventForm="ngForm">
         <mat-form-field class="example-full-width">
             <input matInput type="text" name="title" ngModel required placeholder="event title" minlength="3" #title="ngModel"> 
@@ -15,8 +18,10 @@
         <mat-form-field class="example-full-width">
             <textarea matInput rows="6" name="content" ngModel required placeholder="event content" #content="ngModel"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="accent" type="submit">Save event</button>
+        <button class="create-btn" mat-raised-button  type="submit">Save event</button>
         
-        <button mat-raised-button color="warn" type="submit" [routerLink]="['/eventlist']">See events</button>
-    </form>
+        <button class="create-btn" mat-raised-button  type="submit" routerLink="/events">See events</button>
+    
 </form>
+
+</div>

@@ -1,6 +1,15 @@
+<div class="search-bar-container">
+  <label class="search-label" for="Search-Club">Search Club</label><br>
+  <img src="../../assets/Icons/icon_search.svg" width="17px" alt="" />
+  <input class="searchbar" type="text" [(ngModel)]="title" (input)="search()"/>
+  <div class="form-group">
+    <button mat-raised-button color="warn" type="button" class="btn btn-primary" routerLink='/createclub' routerLinkActive="active"
+        id="new"> Create club</button>
+  </div>
+</div>
 
 <div class="cards-wrapper">
-  <div class="card" style="width: 18rem;" *ngFor="let Club of clubs">
+  <div class="card" style="width: 18rem;" *ngFor="let Club of clubs ">
     <img class="card-img-top" src="../../../assets/clubs/Enactus.jpg" alt="Card image cap">
     
     <div class="card-body">
@@ -16,10 +25,7 @@
     </div>
   
     </div>
-    <div class="form-group">
-      <button mat-raised-button color="warn" type="button" class="btn btn-primary" routerLink='/createclub' routerLinkActive="active"
-          id="new"> create club</button>
-    </div>
+   
 </div>
   
   

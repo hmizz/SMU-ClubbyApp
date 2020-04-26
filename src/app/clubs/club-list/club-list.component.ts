@@ -12,7 +12,7 @@ import { ClubsService } from "../clubs.service";
 export class clubListComponent implements OnInit{
   clubs: Club[]= [];
   private ClubsSub: Subscription;
-
+  title:string;
   constructor(public ClubsService: ClubsService) {}
 
   ngOnInit() {
@@ -23,5 +23,16 @@ export class clubListComponent implements OnInit{
       });
   }
 
+  search(){
+    if(this.title !=""){ 
+      this.clubs=this.clubs.filter(res=>{
+      return res.title.toLocaleLowerCase().match(this.title.toLocaleLowerCase());
+    });
+
+    }else if (this.title==""){
+      this.ngOnInit();
+    }
+   
+  }
  
 }
