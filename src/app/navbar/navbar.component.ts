@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,EventEmitter, Output} from '@angular/core';
 import { AuthService } from '../authentication/auth.service';
-import { Subscription } from 'rxjs';
+import { Subscription, from } from 'rxjs';
 import { ClubsService } from '../clubs/clubs.service';
-
+import { Club} from '../clubs/club.model' 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
   username: string;
-
+  @Output() searchcriteria = new EventEmitter<String>();
   constructor(private authService: AuthService ,private clubsService: ClubsService) { }
 
   ngOnDestroy(): void {
@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   displayclubs(){
     this.clubsService.getClubs();
   }
+
 
 
 }

@@ -7,4 +7,13 @@
     margin-right: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
+    background-color: #AAAAAA;
+}
+.mat-card{
+    background-color: #008CBA;
+
+}
+.create-btn{
+    background-color: #FA9600;
+    margin-right: 50px;
 }

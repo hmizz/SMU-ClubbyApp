@@ -8,6 +8,11 @@
     background-color:ghostwhite; 
     text-align: center;
 }
+.create-btn{
+  background-color: #FA9600;
+  margin-right: 50px;
+}
+
   
 .example-full-width {
     width: 100%;
@@ -15,4 +20,12 @@
 
 mat-spinner {
     margin:auto ;
+}    
+.form-wrapper{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  background-color: #008CBA;
+  
 }
