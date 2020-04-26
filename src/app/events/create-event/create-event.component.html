@@ -1,5 +1,6 @@
 
 
+
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 
     
@@ -17,7 +18,7 @@
             <mat-error *ngIf="organizer.invalid" >please enter an organizer </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput type="text" [matDatepicker]="myDatepicker" name="date" [ngModel]="event?.date" required placeholder="event date"  #date="ngModel">
+            <input matInput  [matDatepicker]="myDatepicker" name="date" [ngModel]="event?.date" required placeholder="event date"  #date="ngModel">
             <mat-datepicker-toggle [for]="myDatepicker"  matSuffix></mat-datepicker-toggle>
             <mat-datepicker #myDatepicker></mat-datepicker>
             <mat-error *ngIf="date.invalid">please enter a date</mat-error>
