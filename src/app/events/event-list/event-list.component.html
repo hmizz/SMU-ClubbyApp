@@ -14,7 +14,8 @@
         <p>{{event.topic}}</p>
     </mat-expansion-panel>
 </mat-accordion> -->
-<div class="cards-deck">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="cards-deck" *ngIf="!isLoading">
     <div class="cards-wrapper" *ngFor="let event of events">
         <div class="cards">
             <div class="card mb-3">
@@ -33,10 +34,7 @@
                                     <h4>{{event.organizer}}</h4>
                                     <small class="text-muted">{{event.topic}}</small>
                                 </div>
-                                <div class="card-sub-bold">
-                                    <h4>Location</h4>
-                                    <small class="text-muted">Olympsky</small>
-                                </div>
+                                
                                 <div class="card-sub-bold">
                                     <h4>Date</h4>
                                     <small class="text-muted">{{event.date}}</small>
@@ -47,11 +45,11 @@
                     <div class="col-md-3 d-flex flex-column card-cta">
                         <img src="../../assets/Logos/Enactus.jpg" alt="" />
                         <div class="card-buttons">
-                            <button type="button" class="btn btn-primary btn--orange">
-                                Join Our Club
+                            <button type="button" class="btn btn-primary btn--orange" (click)="onDelete(event.id)">
+                                DELETE
                             </button>
-                            <button type="button" class="btn btn-outline-secondary btn--orange-outline">
-                                Join the Event
+                            <button type="button" class="btn btn-outline-secondary btn--orange-outline" [routerLink]="['/editEvent',event.id]" routerLinkActive="router-link-active" >
+                                EDIT
                             </button>
                         </div>
                     </div>

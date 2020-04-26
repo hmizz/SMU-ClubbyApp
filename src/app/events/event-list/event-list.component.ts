@@ -11,17 +11,24 @@ import { Subscription } from 'rxjs';
 })
 export class EventListComponent implements OnInit {
   events: Event[]=[];
+  isLoading = false;
   private eventsSub : Subscription;
 
 
   constructor(public eventsListService:EventListService ) { }
 
   ngOnInit(){
+    this.isLoading= true;
     this.eventsListService.getEvents();
     this.eventsSub = this.eventsListService.getEventUpdateListener()
     .subscribe((events: Event[])=>{
+      this.isLoading= false;
       this.events = events;
     })
+  }
+
+  onDelete(eventId: string){
+    this.eventsListService.deleteEvent(eventId);
   }
   ngOnDestroy(){
     this.eventsSub.unsubscribe();
