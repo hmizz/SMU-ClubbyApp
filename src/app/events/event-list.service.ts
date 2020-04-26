@@ -14,11 +14,7 @@ export class EventListService {
   private events: Event[] = [];
   private eventsUpdated = new Subject<Event[]>();
 
-<<<<<<< HEAD
   constructor(private http: HttpClient, private router : Router) { }
-=======
-  constructor(private http: HttpClient, private router: Router) { }
->>>>>>> f907b79a2a351bfc5d17bbeb075a657e82fa1f2d
 
   getEvents() {
     this.http.get<{ message: string, events: any }>('http://localhost:3000/api/events')
@@ -54,9 +50,6 @@ export class EventListService {
       event.id = eventId;
       this.events.push(event);
       this.eventsUpdated.next([...this.events]);
-<<<<<<< HEAD
-      this.router.navigate(['/events']);
-=======
       this.router.navigate(["/"]);
     });
   }
@@ -72,7 +65,6 @@ export class EventListService {
       this.events = eventsUpdated;
       this.eventsUpdated.next([...this.events]);
       this.router.navigate(["/"]);
->>>>>>> f907b79a2a351bfc5d17bbeb075a657e82fa1f2d
     });
   }
 
