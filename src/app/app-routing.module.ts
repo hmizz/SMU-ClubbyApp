@@ -21,7 +21,8 @@ import { AuthGuard } from './authentication/auth.guard';
   {path:'eventlist', component:EventListComponent},
   {path:'createEvent', component:CreateEventComponent},
   {path:'clublist', component:clubListComponent},
-  {path:'createclub', component:CreateClubComponent} 
+  {path:'createclub', component:CreateClubComponent},
+  {path:'editEvent/:eventId', component:CreateEventComponent}
  ];
 
  @NgModule({
