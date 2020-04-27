@@ -14,7 +14,6 @@
         <p>{{event.topic}}</p>
     </mat-expansion-panel>
 </mat-accordion> -->
-<mat-spinner *ngIf="isLoading"></mat-spinner>
 <div class="cards-deck" *ngIf="!isLoading">
     <div class="cards-wrapper" *ngFor="let event of events">
         <div class="cards">

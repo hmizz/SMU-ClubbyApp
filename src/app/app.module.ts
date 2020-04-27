@@ -25,6 +25,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { EventsComponent } from "./events/events.component";
 import { SignUpComponent } from "./authentication/sign-up/sign-up.component";
@@ -67,6 +68,7 @@ import { CreateClubComponent } from "./clubs/create-club/create-club.component";
     CarouselModule,
     FormsModule,
     NgbModule,
+    MatDatepickerModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
