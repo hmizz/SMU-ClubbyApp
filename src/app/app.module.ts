@@ -20,6 +20,7 @@ import { OwlcarouselComponent } from "./owlcarousel/owlcarousel.component";
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { ClubsComponent } from "./clubs/clubs.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import {MatDatepickerModule} from "@angular/material/datepicker"
 
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
@@ -37,6 +38,9 @@ import { clubListComponent } from "./clubs/club-list/club-list.component";
 import { CommonModule } from "@angular/common";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { CreateClubComponent } from "./clubs/create-club/create-club.component";
+import { from } from 'rxjs';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -75,6 +79,9 @@ import { CreateClubComponent } from "./clubs/create-club/create-club.component";
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
