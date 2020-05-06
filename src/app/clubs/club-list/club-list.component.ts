@@ -13,6 +13,7 @@ export class clubListComponent implements OnInit{
   clubs: Club[]= [];
   private ClubsSub: Subscription;
   title:string;
+  tab:any;
   constructor(public ClubsService: ClubsService) {}
 
   ngOnInit() {
@@ -32,7 +33,70 @@ export class clubListComponent implements OnInit{
     }else if (this.title==""){
       this.ngOnInit();
     }
-   
   }
- 
+  FilterAcad(){
+    
+      this.clubs=this.clubs.filter(res=>{
+      return res.category.toLocaleLowerCase().match("academic");
+    });
+
+    
+  }
+  FilterPol(){
+    
+    this.clubs=this.clubs.filter(res=>{
+    return res.category.toLocaleLowerCase().match("political");
+  });
+
+  
+}
+FilterPub(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("media & publication groups");
+});
+
+
+}
+FilterCom(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("community services");
+});
+
+
+}
+FilterArts(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("arts");
+});
+
+
+}
+FilterCult(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("cultural");
+});
+
+
+}
+FilterSpirit(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("spiritual");
+});
+
+
+}
+FilterSport(){
+    
+  this.clubs=this.clubs.filter(res=>{
+  return res.category.toLocaleLowerCase().match("sports");
+});
+
+
+}
+  
 }
