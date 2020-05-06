@@ -11,6 +11,26 @@
             <input matInput type="text" name="organizer" [ngModel]="event?.organizer" required placeholder="event organizer" minlength="3" #organizer="ngModel">
             <mat-error *ngIf="organizer.invalid" >please enter an organizer </mat-error>
         </mat-form-field>
+        <!-- <div class="input-group">
+            <input
+              class="form-control date-input"
+              placeholder="Pick a date"
+              required
+              [ngModel]="event?.date"
+              name="date"
+              ngbDatepicker
+              #date="ngModel"
+            >
+            <div class="input-group-append ">
+              <button
+                class="btn btn-outline-secondary calendar datepicker"
+                (click)="date.toggle()"
+                type="button"
+              >
+                <img src="../../assets/Icons/Calendar.svg" width="18px" alt="" />
+              </button>
+            </div>
+          </div> -->
         <mat-form-field class="example-full-width">
             <input matInput  [matDatepicker]="myDatepicker" name="date" [ngModel]="event?.date" required placeholder="event date"  #date="ngModel">
             <mat-datepicker-toggle [for]="myDatepicker"  matSuffix></mat-datepicker-toggle>

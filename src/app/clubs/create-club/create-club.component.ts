@@ -17,7 +17,7 @@ export class CreateClubComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.ClubsService.addClub(form.value.title, form.value.category, form.value.description)
+    this.ClubsService.addClub(form.value.title, form.value.description, form.value.category)
     form.resetForm();
   }
 

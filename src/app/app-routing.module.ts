@@ -11,6 +11,7 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { CreateClubComponent } from './clubs/create-club/create-club.component';
 import { clubListComponent } from './clubs/club-list/club-list.component';
 import { AuthGuard } from './authentication/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
  const routes: Routes = [
   { path: '', component: BodyComponent, },
@@ -19,10 +20,11 @@ import { AuthGuard } from './authentication/auth.guard';
   { path: 'clubs', component: ClubsComponent, },
   {path : 'events', component: EventsComponent},
   {path:'eventlist', component:EventListComponent},
-  {path:'createEvent', component:CreateEventComponent},
+  {path:'createEvent', component:CreateEventComponent, canActivate: [AuthGuard]},
   {path:'clublist', component:clubListComponent},
-  {path:'createclub', component:CreateClubComponent},
-  {path:'editEvent/:eventId', component:CreateEventComponent}
+  {path:'createclub', component:CreateClubComponent, canActivate: [AuthGuard]},
+  {path:'editEvent/:eventId', component:CreateEventComponent, canActivate: [AuthGuard]},
+  {path:'profile', component:ProfileComponent, canActivate: [AuthGuard]},
  ];
 
  @NgModule({

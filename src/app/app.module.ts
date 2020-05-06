@@ -26,7 +26,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { EventsComponent } from "./events/events.component";
 import { SignUpComponent } from "./authentication/sign-up/sign-up.component";
@@ -40,7 +39,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { CreateClubComponent } from "./clubs/create-club/create-club.component";
 import { from } from 'rxjs';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -64,6 +64,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     CreateEventComponent,
     clubListComponent,
     CreateClubComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

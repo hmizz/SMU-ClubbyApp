@@ -8,12 +8,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+passwordMismatch = false ;
   constructor(public authService: AuthService) { }
 
   onSignUp(form: NgForm) {
     if (form.invalid) {
       return;
+    }
+    if(form.value.password != form.value.passwordConfirm){
+      this.passwordMismatch = true ;
+      return ;
     }
     this.authService.createUser(form.value.fullname, form.value.email, form.value.password);
   }

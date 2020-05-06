@@ -38,14 +38,14 @@ export class CreateEventComponent implements OnInit {
     });
   }
 
-  
   onSaveEvent(form: NgForm) {
     if (form.invalid) {
       return;
     }
     this.isLoading = true;
     if(this.mode==='create') {
-      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date, form.value.content)
+      console.log(form.value.date);
+      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date.toISOString(), form.value.content);
 
     }else{
       this.eventListService.updateEvent(this.eventId,form.value.title, form.value.organizer, form.value.date, form.value.content)

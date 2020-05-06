@@ -34,19 +34,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.username = this.authService.getUsername();
-    if (this.authService.getAccessLevel() == 3) {
-      this.userAccess = true;
-    } else {
-      this.userAccess = false;
-    }
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe((isAuthenticated) => {
         this.userIsAuthenticated = isAuthenticated;
         this.username = this.authService.getUsername();
+        if (this.authService.getAccessLevel() == 3) {
+          this.userAccess = true;
+        } else {
+          this.userAccess = false;
+        }
       });
   }
-  displayclubs() {
-    this.clubsService.getClubs();
-  }
+  // displayclubs() {
+  //   this.clubsService.getClubs();
+  // }
 }
