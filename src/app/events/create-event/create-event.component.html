@@ -1,13 +1,7 @@
 
-
-
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-
-    
-<div class="form-wrapper">
-
-
+<div class="example-form" >
     <form (submit)="onSaveEvent(eventForm)" #eventForm="ngForm" *ngIf="!isLoading">
+    <div class="form-wrapper">
         <mat-form-field class="example-full-width">
             <mat-label>Enter the event title</mat-label>
             <input matInput type="text" name="title" [ngModel]="event?.title" required placeholder="event title" minlength="3" #title="ngModel"> 
@@ -29,7 +23,6 @@
         <button class="create-btn" mat-raised-button  type="submit">Save event</button>
         
         <button mat-raised-button color="warn" type="submit" [routerLink]="['/eventlist']">See events</button>
-    </form>
 </div>
 
 

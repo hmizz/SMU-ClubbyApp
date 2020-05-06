@@ -11,7 +11,7 @@ router.post("/signup", (req, res, next) => {
       fullName: req.body.fullname,
       email: req.body.email,
       password: hash,
-      accessLEVEL: 0,
+      accessLevel: 0,
     });
     user
       .save()
@@ -60,6 +60,7 @@ router.post("/login", (req, res, next) => {
         token: token,
          expiresIn: 3600,
         username: fetchedUser.fullName,
+        accessLevel : fetchedUser.accessLevel
       });
     })
     .catch((err) => {
