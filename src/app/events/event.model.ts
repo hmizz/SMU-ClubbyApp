@@ -3,6 +3,7 @@ export interface Event {
     title: string;
     organizer: string;
     date : string;
+    time : string;
     location: string;
       // the club organizer
     description : string; 

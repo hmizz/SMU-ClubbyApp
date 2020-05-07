@@ -25,6 +25,7 @@ export class EventListService {
           title: event.title,
           organizer: event.organizer,
           date: event.date,
+          time: event.time,
           description: event.description,
         };
       });
@@ -40,11 +41,11 @@ export class EventListService {
   }
   
   getEvent(id: string){
-    return this.http.get<{_id: string, title: string, organizer: string, date: string, content:string, location: null, topic:null}>("http://localhost:3000/api/events/" + id);
+    return this.http.get<{_id: string, title: string, organizer: string, date: string,time:string, content:string, location: string, topic:null}>("http://localhost:3000/api/events/" + id);
   }
 
-  addEvent(title: string, organizer: string,date: string, content: string, ) {
-    const event: Event = { id: null, title: title, organizer: organizer, date: date,location: null, description: content, topic : null };
+  addEvent(title: string, organizer: string,date: string,time: string, content: string,location:string ) {
+    const event: Event = { id: null, title: title, organizer: organizer, date: date, time: time, location: location, description: content, topic : null };
     this.http.post<{ message: string, eventId: string }>('http://localhost:3000/api/events', event).subscribe((responseData) => {
       const eventId = responseData.eventId;
       event.id = eventId;
@@ -54,8 +55,8 @@ export class EventListService {
     });
   }
 
-  updateEvent(id:string, title:string, organizer: string,date: string,content:string){
-    const event: Event={id: id,title: title,organizer: organizer, date: date, description: content ,topic : null ,location: null}
+  updateEvent(id:string, title:string, organizer: string,date: string, time: string,location:string,content:string){
+    const event: Event={id: id,title: title,organizer: organizer, date: date,time: time, description: content ,topic : null ,location: location}
     this.http
     .put("http://localhost:3000/api/events/" + id, event)
     .subscribe(response => {

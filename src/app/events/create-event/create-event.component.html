@@ -38,6 +38,16 @@
             <mat-error *ngIf="date.invalid">please enter a date</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
+          <mat-label>Enter the event time</mat-label>
+          <input matInput type="text" name="time" [ngModel]="event?.time" required placeholder="event time" minlength="3" #time="ngModel"> 
+          <mat-error *ngIf="time.invalid">Please Enter the time</mat-error> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter the event location</mat-label>
+          <input matInput type="text" name="location" [ngModel]="event?.location" required placeholder="event location" minlength="3" #location="ngModel"> 
+          <mat-error *ngIf="location.invalid">Please provide the location</mat-error> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
             <textarea matInput rows="6" name="content" [ngModel]="event?.description" required placeholder="event content" #content="ngModel"></textarea>
         </mat-form-field>
         <button class="create-btn" mat-raised-button  type="submit">Save event</button>
