@@ -39,6 +39,10 @@ export class ClubsService {
     return this.clubsUpdated.asObservable();
   }
 
+  getClubsArray(){
+    return this.clubs ;
+  }
+
   addClub(title: string, description: string, category: string) {
     const club: Club = {
       id: null,
