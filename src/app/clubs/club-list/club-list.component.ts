@@ -14,6 +14,7 @@ export class clubListComponent implements OnInit{
   private ClubsSub: Subscription;
   title:string;
   tab:any;
+  message:boolean =false;
   constructor(public ClubsService: ClubsService) {}
 
   ngOnInit() {
@@ -22,8 +23,8 @@ export class clubListComponent implements OnInit{
       .subscribe((clubs: Club[]) => {
         this.clubs = clubs;
       });
-  }
-
+  
+    }
   search(){
     if(this.title !=""){ 
       this.clubs=this.clubs.filter(res=>{
@@ -36,66 +37,87 @@ export class clubListComponent implements OnInit{
   }
   FilterAcad(){
     
+      
+    this.clubs = this.ClubsService.getClubsArray();
+
       this.clubs=this.clubs.filter(res=>{
       return res.category.toLocaleLowerCase().match("academic");
+      
     });
-
+  
+    
     
   }
   FilterPol(){
     
+    this.clubs = this.ClubsService.getClubsArray();
+
     this.clubs=this.clubs.filter(res=>{
     return res.category.toLocaleLowerCase().match("political");
   });
 
   
+
+  
 }
 FilterPub(){
-    
+  
+  this.clubs = this.ClubsService.getClubsArray();
+
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("media & publication groups");
 });
 
-
+  
 }
 FilterCom(){
+  
+  this.clubs = this.ClubsService.getClubsArray();
     
   this.clubs=this.clubs.filter(res=>{
-  return res.category.toLocaleLowerCase().match("community services");
+  return res.category.toLocaleLowerCase().match("community service & social justice");
 });
-
+  
 
 }
 FilterArts(){
+ 
+  this.clubs = this.ClubsService.getClubsArray();
     
   this.clubs=this.clubs.filter(res=>{
-  return res.category.toLocaleLowerCase().match("arts");
+  return res.category.toLocaleLowerCase().match("theater & the arts");
 });
-
+  
 
 }
 FilterCult(){
+ 
+  this.clubs = this.ClubsService.getClubsArray();
     
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("cultural");
 });
-
+  
 
 }
 FilterSpirit(){
+ 
+  this.clubs = this.ClubsService.getClubsArray();
     
   this.clubs=this.clubs.filter(res=>{
-  return res.category.toLocaleLowerCase().match("spiritual");
+  return res.category.toLocaleLowerCase().match("religious & spiritual");
 });
 
-
+  
 }
 FilterSport(){
+ 
+  this.clubs = this.ClubsService.getClubsArray();
     
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("sports");
 });
-
+  
 
 }
   

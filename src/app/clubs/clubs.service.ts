@@ -65,6 +65,10 @@ export class ClubsService {
   getClubWaitingUpdateListener() {
     return this.clubsWaitingUpdated.asObservable();
   }
+  getClubsArray(){
+    return this.clubs ;
+  }
+
   addClub(title: string, description: string, category: string) {
     const club: Club = {
       id: null,

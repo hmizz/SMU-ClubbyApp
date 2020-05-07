@@ -5,11 +5,12 @@
     <li class="list-group-item list-group-item-action" [class.active]="tab=='tab1'"  (click)="FilterAcad(); tab='tab1'" role="tab" ><a >Academic</a></li>
     <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab2'" (click)="FilterPol(); tab='tab2'" role="tab"><a   >Political</a></li>
     <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab3'" (click)="FilterPub(); tab='tab3'" role="tab" ><a  >Media & Publication Groups</a></li>
-    <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab4'" (click)="FilterCom(); tab='tab4'" role="tab" ><a  >Community services</a></li>
-    <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab5'" (click)="FilterArts(); tab='tab5'" role="tab" ><a   >Arts</a></li>
+    <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab4'" (click)="FilterCom(); tab='tab4'" role="tab" ><a  >Community Service & Social Justice</a></li>
+    <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab5'" (click)="FilterArts(); tab='tab5'" role="tab" ><a   >Theater & The Arts</a></li>
     <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab6'" (click)="FilterCult(); tab='tab6'" role="tab" ><a   >Cultural</a></li>
     <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab7'" (click)="FilterSpirit(); tab='tab7'" role="tab" ><a   >Spiritual</a></li>
     <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab8'" (click)="FilterSport(); tab='tab8'" role="tab" ><a   >Sports</a></li>
+    <li class="list-group-item list-group-item-action"  [class.active]="tab=='tab9'" (click)="tab='tab9'" role="tab" ><a href="http://localhost:4200/clubs"   >Show all</a></li>
   </ul>
 </div>
 
@@ -23,13 +24,16 @@
 
 
 
-
+<div class="alert alert-warning" role="alert" *ngIf="!message">
+  This category is empty. <a href="http://localhost:4200/clubs" class="alert-link">See all clubs</a>. Give it a click if you like.
+</div>
 
 <div class="cards-wrapper">
+ 
   <div class="card" style="width: 17rem;" *ngFor="let Club of clubs">
     <img
       class="card-img-top"
-      src="../../../assets/clubs/Enactus.jpg"
+      src="../../../assets/clubs/clubsimg.jpg"
       alt="Card image cap"
     />
     <div class="card-body">
