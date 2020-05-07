@@ -15,10 +15,6 @@ passwordMismatch = false ;
     if (form.invalid) {
       return;
     }
-    if(form.value.password != form.value.passwordConfirm){
-      this.passwordMismatch = true ;
-      return ;
-    }
     this.authService.createUser(form.value.fullname, form.value.email, form.value.password);
   }
 

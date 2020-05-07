@@ -14,11 +14,7 @@
               </mat-form-field>
               <mat-form-field>
                 <input name="password" type="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
-                <mat-error *ngIf="passwordInput != passwordConfirm">Please enter a valid password.</mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input name="passwordII" type="password" ngModel matInput placeholder="Confirm Password" #passwordConfirm="ngModel" required>
-                <mat-error *ngIf="passwordMismatch">password Mismatch</mat-error>
+                <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
               </mat-form-field>
               <br>
               <button mat-raised-button color="accent" type="submit">Signup</button>

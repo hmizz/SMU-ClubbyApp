@@ -65,6 +65,7 @@ export class AuthService {
       )
       .subscribe(
         (response) => {
+          this.message = true;
           const token = response.token;
           this.token = token;
           if (token) {
@@ -81,7 +82,7 @@ export class AuthService {
             );
             this.saveAuthData(token, expirationDate, response.username, response.accessLevel);
             this.router.navigate(["/"]);
-            this.message = true;
+            
           }
         },
         (err) => {
