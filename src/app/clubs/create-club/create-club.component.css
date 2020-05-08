@@ -1,38 +1,14 @@
-
-.form-wrapper{
-    padding: 12px;
-    margin-left: 50px;
-    margin-right: 50px;
+.container {
     margin-top: 100px;
-    margin-bottom: 100px;
-    background-color: #ffffff;
-}
-.mat-card{
-    background-color: #ffffff;
-
-}
-.create-btn{
-    background-color: #FA9600;
-    margin-right: 50px;
-    margin-top: 20px;
-}
-.label{
-    color:black;
-    margin-left: 5px; 
-    font-size: large;
-    font-weight: bold;
-}
-.inputfield{
-    border: 2px solid #999999;
-    border-radius: 5px;
-}
-h1{
-    font-weight: bold;
-    font-size: x-large;
-}
-.form-control{
-    margin-left: 5px;
-}
-.create-btn1{
-    background-color: #007795;
-  }
+    margin-bottom: 75px;
+    }
+    col-2{
+      padding: 0px;
+    }
+    
+    col-6 {
+      padding : 0px;
+    }
+    h3 {
+      text-align: center;
+    }

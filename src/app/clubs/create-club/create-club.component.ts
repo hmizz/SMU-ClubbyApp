@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ClubsService } from '../clubs.service';
 import { from } from 'rxjs';
+import { Club } from '../club.model';
 
 @Component({
   selector: 'app-create-Club',
@@ -9,7 +10,7 @@ import { from } from 'rxjs';
   styleUrls: ['./create-Club.component.css']
 })
 export class CreateClubComponent implements OnInit {
-  
+  club:Club;
 
   constructor(public ClubsService: ClubsService) { }
 
