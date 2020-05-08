@@ -1,4 +1,4 @@
-<div class="cards-wrapper">
+<div class="cards-wrapper" *ngFor="let event of events">
   <div class="cards">
     <div class="card mb-3">
       <div class="row no-gutters">
@@ -11,25 +11,26 @@
         </div>
         <div class="col-md-6 card-body">
           <div class=" card-content ">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{event.title}}</h5>
             <p class="card-text card-text-custom">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem
-              vel commodi adipisci perferendis aut enim quae? Nam, expedita
-              quidem, repudiandae amet iste eaque velit corporis minima ut dolor
-              voluptate earum!
+              {{event.description}}
             </p>
             <div class="card-bottom">
               <div class="card-sub-bold">
-                <h4>Event Name</h4>
+                <h4>{{event.title}}</h4>
                 <small class="text-muted">Event</small>
               </div>
               <div class="card-sub-bold">
                 <h4>Location</h4>
-                <small class="text-muted">Olympsky</small>
+                <small class="text-muted">{{event.location}}</small>
+              </div>
+              <div class="card-sub-bold">
+                <h4>Date</h4>
+                <small class="text-muted">{{event.date}}</small>
               </div>
               <div class="card-sub-bold">
                 <h4>Time</h4>
-                <small class="text-muted">20:30</small>
+                <small class="text-muted">{{event.time}}</small>
               </div>
             </div>
           </div>

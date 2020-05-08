@@ -28,7 +28,8 @@ export class CreateEventComponent implements OnInit {
         this.isLoading = true;
         this.eventListService.getEvent(this.eventId).subscribe(eventData =>{
           this.isLoading = false;
-          this.event = {id: eventData._id, title:eventData.title, organizer:eventData.organizer, date:eventData.date, description:eventData.content ,
+          this.event = {id: eventData._id, title:eventData.title, organizer:eventData.organizer, date:eventData.date,
+            time:eventData.time, description:eventData.content ,
             location:eventData.location, topic:eventData.topic};
         });
       } else {
@@ -45,10 +46,10 @@ export class CreateEventComponent implements OnInit {
     this.isLoading = true;
     if(this.mode==='create') {
       console.log(form.value.date);
-      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date.toISOString(), form.value.content);
+      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date.toISOString(),form.value.time ,form.value.location,form.value.content);
 
     }else{
-      this.eventListService.updateEvent(this.eventId,form.value.title, form.value.organizer, form.value.date, form.value.content)
+      this.eventListService.updateEvent(this.eventId,form.value.title, form.value.organizer, form.value.date, form.value.time,form.value.location,form.value.content)
     }
     
     form.resetForm();

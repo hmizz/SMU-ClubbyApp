@@ -43,7 +43,21 @@
         <label class="label" for="inputDescription">Event description :</label>
       <br/>
         <mat-form-field class="example-full-width">
+<<<<<<< HEAD
             <textarea  class="inputfield" rows="6" cols="70" name="content" [ngModel]="event?.description" required  #content="ngModel"></textarea>
+=======
+          <mat-label>Enter the event time</mat-label>
+          <input matInput type="text" name="time" [ngModel]="event?.time" required placeholder="event time" minlength="3" #time="ngModel"> 
+          <mat-error *ngIf="time.invalid">Please Enter the time</mat-error> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter the event location</mat-label>
+          <input matInput type="text" name="location" [ngModel]="event?.location" required placeholder="event location" minlength="3" #location="ngModel"> 
+          <mat-error *ngIf="location.invalid">Please provide the location</mat-error> 
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea matInput rows="6" name="content" [ngModel]="event?.description" required placeholder="event content" #content="ngModel"></textarea>
+>>>>>>> b5e1adf1a3e01262abf32f3ce91567d7fc2279ae
         </mat-form-field>
         <button class="create-btn" mat-raised-button  type="submit">Save event</button>
         
