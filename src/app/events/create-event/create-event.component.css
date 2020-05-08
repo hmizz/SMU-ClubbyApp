@@ -1,16 +1,17 @@
 .example-form{
-    width: auto;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color:ghostwhite; 
-    text-align: center;
+  padding: 12px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  background-color: #ffffff;
 }
 .create-btn{
   background-color: #FA9600;
   margin-right: 50px;
+}
+.create-btn1{
+  background-color: #007795;
 }
 
   
@@ -25,8 +26,22 @@ mat-spinner {
 .form-wrapper{
   margin-left: 50px;
   margin-right: 50px;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-bottom: 100px;
-  background-color: #008CBA;
+  background-color: white;
   
+}
+.label{
+  color:black;
+  margin-left: 5px; 
+  font-size: large;
+  font-weight: bold;
+}
+.inputfield{
+  border: 2px solid #999999;
+  border-radius: 5px;
+}
+h1{
+  font-weight: bold;
+  font-size: x-large;
 }

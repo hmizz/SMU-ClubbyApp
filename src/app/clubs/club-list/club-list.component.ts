@@ -36,11 +36,8 @@ export class clubListComponent implements OnInit{
     }
   }
   FilterAcad(){
-  
-    
-      
-    this.clubs = this.ClubsService.getClubsArray();
 
+    this.clubs = this.ClubsService.getClubsArray();
       this.clubs=this.clubs.filter(res=>{
       return res.category.toLocaleLowerCase().match("academic");
       
@@ -123,10 +120,8 @@ this.message = false;
   }
 }
 FilterCult(){
-  
- 
-  this.clubs = this.ClubsService.getClubsArray();
-    
+
+  this.clubs = this.ClubsService.getClubsArray();  
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("cultural");
 });
@@ -134,31 +129,27 @@ if(this.clubs.length == 0){
   this.message=true;
 
 }else{
-
 this.message = false;
   }
 }
 FilterSpirit(){
  
- 
-  this.clubs = this.ClubsService.getClubsArray();
-    
+  this.clubs = this.ClubsService.getClubsArray();   
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("religious & spiritual");
 });
 if(this.clubs.length == 0){
   this.message=true;
-
+  
 }else{
 
 this.message = false;
 } 
 }
+
 FilterSport(){
- 
- 
-  this.clubs = this.ClubsService.getClubsArray();
-    
+
+  this.clubs = this.ClubsService.getClubsArray();    
   this.clubs=this.clubs.filter(res=>{
   return res.category.toLocaleLowerCase().match("sports");
 });

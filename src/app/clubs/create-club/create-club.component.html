@@ -1,14 +1,17 @@
+
 <div class="form-wrapper">
+  <h1>Your Club</h1>
   <mat-card>
     <form (submit)="onAddClub(clubForm)" #clubForm="ngForm">
       <mat-form-field>
-        <input
-          matInput
+        <label class="label" for="inputClubTitle">Club title :</label>
+        <input class="inputfield"
+        rows="2" cols="50"
           type="text"
           name="title"
           ngModel
           required
-          placeholder="club title"
+          
           minlength="3"
           #title="ngModel"
         />
@@ -16,7 +19,7 @@
       </mat-form-field>
       <br/>
         <div class="form-group col-md-2">
-        <label for="inputCategory">Category</label>
+        <label class="label" for="inputCategory">Category :</label>
         <select id="inputCategory" class="form-control"
           type="text"
           name="category"
@@ -33,21 +36,30 @@
         </select>
       </div>
       <br/>
+      <label class="label" for="inputDescription">Club description :</label>
+      <br/>
       <mat-form-field>
+        
         <textarea
-          matInput
+        class="inputfield"
+        rows="6" cols="70"
+         
           type="text"
           name="description"
           ngModel
           required
-          placeholder="club description"
+          
           minlength="3"
           #description="ngModel"
         ></textarea>
+        <mat-error *ngIf="description.invalid">Please Enter a description</mat-error>
       </mat-form-field>
       <br />
       <button class="create-btn" mat-raised-button type="submit">
         Save club
+      </button>
+      <button class="create-btn1" mat-raised-button type="submit" [routerLink]="['/clublist']">
+        See clubs
       </button>
     </form>
   </mat-card>

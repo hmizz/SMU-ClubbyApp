@@ -2,13 +2,15 @@
 <div class="example-form" >
     <form (submit)="onSaveEvent(eventForm)" #eventForm="ngForm" *ngIf="!isLoading">
     <div class="form-wrapper">
+      <h1>Your Event</h1>
         <mat-form-field class="example-full-width">
-            <mat-label>Enter the event title</mat-label>
-            <input matInput type="text" name="title" [ngModel]="event?.title" required placeholder="event title" minlength="3" #title="ngModel"> 
+          <label class="label" for="inputEventTitle">Event title :</label>
+            <input  class="inputfield" type="text" name="title" [ngModel]="event?.title" required  minlength="3" #title="ngModel"> 
             <mat-error *ngIf="title.invalid">Please Enter a Title</mat-error> 
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput type="text" name="organizer" [ngModel]="event?.organizer" required placeholder="event organizer" minlength="3" #organizer="ngModel">
+          <label class="label" for="inputEventOrganizer">Event organizer :</label>
+            <input  class="inputfield" type="text" name="organizer" [ngModel]="event?.organizer" required  minlength="3" #organizer="ngModel">
             <mat-error *ngIf="organizer.invalid" >please enter an organizer </mat-error>
         </mat-form-field>
         <!-- <div class="input-group">
@@ -32,17 +34,20 @@
             </div>
           </div> -->
         <mat-form-field class="example-full-width">
-            <input matInput  [matDatepicker]="myDatepicker" name="date" [ngModel]="event?.date" required placeholder="event date"  #date="ngModel">
+          <label class="label" for="inputDateEvent">Date of the event :</label>
+            <input class="inputfield"  [matDatepicker]="myDatepicker" name="date" [ngModel]="event?.date" required   #date="ngModel">
             <mat-datepicker-toggle [for]="myDatepicker"  matSuffix></mat-datepicker-toggle>
             <mat-datepicker #myDatepicker></mat-datepicker>
             <mat-error *ngIf="date.invalid">please enter a date</mat-error>
         </mat-form-field>
+        <label class="label" for="inputDescription">Event description :</label>
+      <br/>
         <mat-form-field class="example-full-width">
-            <textarea matInput rows="6" name="content" [ngModel]="event?.description" required placeholder="event content" #content="ngModel"></textarea>
+            <textarea  class="inputfield" rows="6" cols="70" name="content" [ngModel]="event?.description" required  #content="ngModel"></textarea>
         </mat-form-field>
         <button class="create-btn" mat-raised-button  type="submit">Save event</button>
         
-        <button mat-raised-button color="warn" type="submit" [routerLink]="['/eventlist']">See events</button>
+        <button class="create-btn1" mat-raised-button  type="submit" [routerLink]="['/eventlist']">See events</button>
 </div>
 
 
