@@ -45,8 +45,7 @@ export class CreateEventComponent implements OnInit {
     }
     this.isLoading = true;
     if(this.mode==='create') {
-      console.log(form.value.date);
-      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date.toISOString(),form.value.time ,form.value.location,form.value.content);
+      this.eventListService.addEvent(form.value.title, form.value.organizer, form.value.date.toDateString(),form.value.time ,form.value.content, form.value.location);
 
     }else{
       this.eventListService.updateEvent(this.eventId,form.value.title, form.value.organizer, form.value.date, form.value.time,form.value.location,form.value.content)

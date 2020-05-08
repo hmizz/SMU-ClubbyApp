@@ -5,7 +5,6 @@ export interface Event {
     date : string;
     time : string;
     location: string;
-      // the club organizer
     description : string; 
     topic: string;
 }

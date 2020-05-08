@@ -16,7 +16,7 @@ import { ClubsService } from "../clubs/clubs.service";
 export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
-  userAccess: boolean;
+  userAccess: Number;
   username: string;
   @Output() searchcriteria = new EventEmitter<String>();
   constructor(
@@ -39,11 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       .subscribe((isAuthenticated) => {
         this.userIsAuthenticated = isAuthenticated;
         this.username = this.authService.getUsername();
-        if (this.authService.getAccessLevel() == 3) {
-          this.userAccess = true;
-        } else {
-          this.userAccess = false;
-        }
+        this.userAccess =this.authService.getAccessLevel();
       });
   }
   // displayclubs() {

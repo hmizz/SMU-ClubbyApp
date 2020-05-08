@@ -37,17 +37,19 @@ router.get("/clubstoapprove", (req, res, next) => {
     });
 });
 
+router.get("/:id",(req,res,next)=>{
+    Club.findById(req.params.id).then(club=>{
+      if (club){
+        res.status(200).json(club);
+  
+      } else {
+        res.status(404).json({message: 'Club not found!'});
+      }
+    })
+  });
+
 router.put("/:id",(req,res,next)=>{
-    // const club = new ({
-    //   _id: req.body.id,
-    //   title: req.body.title,
-    //   organizer: req.body.organizer,
-    //   date: req.body.date,
-    //   description: req.body.content
-    // });
-    console.log(req.params.id);
     Club.updateOne({_id: req.params.id},{approved: true}).then(result=>{
-      console.log(result);
       res.status(200).json({message: "Update successful"});
     });
   });

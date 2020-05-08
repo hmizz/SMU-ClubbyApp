@@ -13,6 +13,8 @@ export class EventListService {
 
   private events: Event[] = [];
   private eventsUpdated = new Subject<Event[]>();
+  private eventsWaiting: Event[] = [];
+  private eventsWaitingUpdated = new Subject<Event[]>();
 
   constructor(private http: HttpClient, private router : Router) { }
 
@@ -34,6 +36,32 @@ export class EventListService {
         this.events = transformedEvents;
         this.eventsUpdated.next([...this.events]);
       });
+  }
+
+  getEventsWaiting() {
+    this.http
+      .get<{ message: string; events: any }>("http://localhost:3000/api/Events/Eventstoapprove")
+      .pipe(
+        map((eventData) => {
+          return eventData.events.map((event) => {
+            return {
+              id: event._id,
+              title: event.title,
+              organizer: event.organizer,
+              date: event.date,
+              time: event.time,
+              description: event.description,
+            };
+          });
+        })
+      )
+      .subscribe((transformedEvents) => {
+        this.eventsWaiting = transformedEvents;
+        this.eventsWaitingUpdated.next([...this.eventsWaiting]);
+      });
+  }
+  getClubUpdateListener() {
+    return this.eventsUpdated.asObservable();
   }
 
   getEventUpdateListener() {
@@ -76,5 +104,27 @@ export class EventListService {
       this.events = eventsUpdated;
       this.eventsUpdated.next([...this.events]);
     })
+  }
+
+  approveEvent(eventId : string){
+    this.http
+    .put("http://localhost:3000/api/events/"+ eventId, eventId)
+    .subscribe(response => {
+      const eventsUpdated = [...this.events];
+      this.events = eventsUpdated;
+      this.eventsUpdated.next([...this.events]);
+      this.eventsWaiting=this.eventsWaiting.filter(club =>club.id != eventId);
+      const eventsWaiting = [...this.eventsWaiting];
+      this.eventsWaiting = eventsWaiting ;
+      this.eventsWaitingUpdated.next([...this.eventsWaiting]);
+      this.router.navigate(["/profile"]);
+    });
+  }
+
+  getEventWaitingUpdateListener() {
+    return this.eventsWaitingUpdated.asObservable();
+  }
+  getEventsArray(){
+    return this.events ;
   }
 }

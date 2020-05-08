@@ -72,7 +72,26 @@
     box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.18);
   }
 
-  mat-spinner{ 
-    margin: auto;
-  }
+  .searchbar{
+ 
+    width: 300px;
+    background-color: #f2f2f2;
+    border-radius: 0 50px 50px 0;
+    border: none;
+  
+   }
+   .search{
+     margin-left: 50px;
+   
+   }
+   .search-bar-container{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+   }
+   .search-label{
+    font-size: large;
+    font-weight: bold;
+   }
   

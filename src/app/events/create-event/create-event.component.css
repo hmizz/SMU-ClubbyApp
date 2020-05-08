@@ -1,44 +1,14 @@
+.container {
+margin-top: 100px;
+margin-bottom: 75px;
+}
+col-2{
+  padding: 0px;
+}
 
-.create-btn{
-  background-color: #FA9600;
-  margin-right: 50px;
+col-6 {
+  padding : 0px;
 }
-.create-btn1{
-  background-color: #007795;
-}
-
-  
-.example-full-width {
-    width: 100%;
-}
-.mat-card{
-  background-color: #ffffff;
-
-}
-mat-spinner {
-    margin:auto ;
-
-}    
-.form-wrapper{
-  padding: 12px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    background-color: white;
-  
-}
-.label{
-  color:black;
-  margin-left: 5px; 
-  font-size: large;
-  font-weight: bold;
-}
-.inputfield{
-  border: 2px solid #999999;
-  border-radius: 5px;
-}
-h1{
-  font-weight: bold;
-  font-size: x-large;
+h3 {
+  text-align: center;
 }
