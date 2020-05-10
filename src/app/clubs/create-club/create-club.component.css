@@ -1,9 +1,6 @@
-
-.form-wrapper{
-    padding: 12px;
-    margin-left: 50px;
-    margin-right: 50px;
+.container {
     margin-top: 100px;
+<<<<<<< HEAD
     margin-bottom: 100px;
     background-color: #ffffff;
 }
@@ -48,3 +45,17 @@ input[type="file"]{
 .image-preview img {
     height: 500;
 }
+=======
+    margin-bottom: 75px;
+    }
+    col-2{
+      padding: 0px;
+    }
+    
+    col-6 {
+      padding : 0px;
+    }
+    h3 {
+      text-align: center;
+    }
+>>>>>>> 4f74cf6f5ca16b666ea39c68cea7e7b920e63639
