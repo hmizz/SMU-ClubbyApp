@@ -27,6 +27,7 @@ export class ClubsService {
               category: club.category,
               events: club.events,
               id: club._id,
+              imagePath: club.imagePath
             };
           });
         })
@@ -68,22 +69,38 @@ export class ClubsService {
   getClubsArray(){
     return this.clubs ;
   }
+  getClub(id: string){
+    return this.http.get<{_id: string, title: string, category: string, description:string}>("http://localhost:3000/api/clubs/" + id);
+  }
 
-  addClub(title: string, description: string, category: string) {
-    const club: Club = {
+  addClub(title: string, description: string, category: string, image: File) {
+    /*const club: Club = {
       id: null,
       title: title,
       description: description,
       category: category,
       events: null,
       approved: null,
-    };
+    };*/
+    const clubData = new FormData();
+    clubData.append("title", title);
+    clubData.append("description", description);
+    clubData.append("category", category);
+    clubData.append("image", image, title);
     this.http
-      .post<{ message: string; clubId: string }>(
+      .post<{ message: string; club: Club }>(
         "http://localhost:3000/api/clubs",
-        club
+        clubData
       )
       .subscribe((responseData) => {
+        const club: Club = {id: responseData.club.id,
+           title: title,
+           description: description,
+           category: category,
+           events : null,
+           approved: null,
+           imagePath: responseData.club.imagePath
+          };
         console.log(responseData.message);
         this.clubs.push(club);
         this.clubsUpdated.next([...this.clubs]);

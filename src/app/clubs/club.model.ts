@@ -5,4 +5,5 @@ export class Club {
     category: string;
     events : [];
     approved : boolean ;
+    imagePath: string;
   }

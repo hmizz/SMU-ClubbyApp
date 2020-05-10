@@ -35,8 +35,8 @@
   <div class="card" style="width: 16rem;" *ngFor="let Club of clubs">
     <img
       class="card-img-top"
-      src="../../../assets/clubs/clubsimg.jpg"
-      alt="Card image cap"
+      [src]="Club.imagePath"
+      [alt]="Club.title"
     />
     <div class="card-body">
       <hr />

@@ -5,7 +5,8 @@ const clubSchema = mongoose.Schema({
     description: {type: String, required: true},
     category: {type: String, required: true},
     events: {type:[] },
-    approved: {type: Boolean, default : false}
+    approved: {type: Boolean, default : false},
+    imagePath : {type: String,required: true}
 });
 
 module.exports = mongoose.model("Club", clubSchema);
