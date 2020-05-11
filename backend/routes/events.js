@@ -1,10 +1,32 @@
 const express = require("express");
-
+const multer = require("multer");
 const Event = require("../models/event");
 
 const router = express.Router();
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg'
+};
 
-router.post("", (req, res, next) => {
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error("Invalid mime tpe");
+    if (isValid) {
+      error= null;
+    }
+    cb(null, "backend/images");
+  },
+  filename: (req , file, cb)=>{
+    const name= file.originalname.toLowerCase().split(' ').join('-');
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext);
+  }
+});
+
+router.post("",multer({storage: storage}).single("image"),(req, res, next) => {
+  const url = req.protocol+ '://' + req.get("host");
     const event = new Event({
         title: req.body.title,
         organizer: req.body.organizer,
@@ -12,7 +34,8 @@ router.post("", (req, res, next) => {
         time: req.body.time,
         location: req.body.location,
         description: req.body.description,
-        topic: req.body.topic
+        topic: req.body.topic,
+        imagePath: url + "/images/" + req.file.filename
     });
     event.save().then(createdEvent=>{
         res.status(201).json({

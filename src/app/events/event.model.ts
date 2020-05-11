@@ -6,5 +6,7 @@ export interface Event {
     time : string;
     location: string;
     description : string; 
-    topic: string;
+    topic:string;
+    imagePath: string;
+
 }

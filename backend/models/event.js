@@ -8,7 +8,8 @@ const eventSchema = mongoose.Schema({
     location: {type: String},
     description: {type: String},
     topic: {type: String},
-    approved: {type: Boolean, default: false}
+    approved: {type: Boolean, default: true},
+    imagePath : {type: String,required: true}
 });
 
 module.exports = mongoose.model('Event', eventSchema);

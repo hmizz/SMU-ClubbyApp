@@ -29,6 +29,7 @@ export class EventListService {
           date: event.date,
           time: event.time,
           description: event.description,
+          imagePath: event.imagePath,
         };
       });
     }))
@@ -72,19 +73,41 @@ export class EventListService {
     return this.http.get<{_id: string, title: string, organizer: string, date: string,time:string, content:string, location: string, topic:null}>("http://localhost:3000/api/events/" + id);
   }
 
-  addEvent(title: string, organizer: string,date: string,time: string, content: string,location:string ) {
-    const event: Event = { id: null, title: title, organizer: organizer, date: date, time: time, location: location, description: content, topic : null };
-    this.http.post<{ message: string, eventId: string }>('http://localhost:3000/api/events', event).subscribe((responseData) => {
-      const eventId = responseData.eventId;
-      event.id = eventId;
+  addEvent(title: string, organizer: string,date: string,time: string, description: string,location:string , image: File) {
+    /*const event: Event = { id: null, title: title, organizer: organizer, date: date, time: time, location: location, description: content, topic : null };
+    */
+   const eventData = new FormData();
+    eventData.append("title", title);
+    eventData.append("organizer", organizer);
+    eventData.append("date", date);
+    eventData.append("time", time);
+    eventData.append("description", description);
+    eventData.append("location", location);
+    eventData.append("image", image, title);
+    this.http
+    .post<{ message: string, event: Event }>(
+      'http://localhost:3000/api/events', eventData)
+      .subscribe((responseData) => {
+      const event: Event = {id: responseData.event.id,
+        title: title,
+        organizer: organizer,
+        date: date,
+        time : time,
+        description:description,
+        location:location,
+        topic:null,
+        imagePath: responseData.event.imagePath
+       };
+
+      console.log(responseData.message);
       this.events.push(event);
       this.eventsUpdated.next([...this.events]);
-      this.router.navigate(["/"]);
+      this.router.navigate(["/events"]);
     });
   }
 
   updateEvent(id:string, title:string, organizer: string,date: string, time: string,location:string,content:string){
-    const event: Event={id: id,title: title,organizer: organizer, date: date,time: time, description: content ,topic : null ,location: location}
+    const event: Event={id: id,title: title,organizer: organizer, date: date,time: time, description: content ,topic : null ,location: location,imagePath: null}
     this.http
     .put("http://localhost:3000/api/events/" + id, event)
     .subscribe(response => {
