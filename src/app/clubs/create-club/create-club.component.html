@@ -79,7 +79,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <form  (submit)="onAddClub(clubForm)" #clubForm="ngForm">
+              <form [formGroup]="form" (submit)="onAddClub()">
                 <div class="form-group row">
                   <label for="club name" class="col-4 col-form-label"
                     >Club Name</label
@@ -90,17 +90,20 @@
                       name="title"
                       placeholder="Name your club"
                       class="form-control here"
-                      required="required"
+                      
                       type="text"
-                      [ngModel]="club?.title"
-                      required
-                      minlength="3"
-                      #title="ngModel"
+                      formControlName="title"
                     />
                   </div>
                 </div>
-                
-                
+                <div class="image-pick-container">
+                  <button  class="btn btn-primary" type="button" (click)="filePicker.click()">Pick Image</button>
+                  <input type="file" #filePicker (change)="onImagePicked($event)">
+                </div>
+                <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+               
+                  <img [src]='imagePreview' [alt]="form.value.title">
+                </div>
                   
                 
                 <div class="form-group row">
@@ -111,11 +114,7 @@
                       type="text"
                       name="category"
                       class="custom-select"
-                      [ngModel]="club?.category"
-                      required
-                      placeholder="club category"
-                      minlength="3"
-                      #category="ngModel"
+                      formControlName="category"
                     >
                     <option selected>Academic</option>
                     <option>Political</option>
@@ -141,9 +140,7 @@
                       cols="40"
                       rows="4"
                       class="form-control"
-                      [ngModel]="club?.description"
-                      required
-                      #content="ngModel"
+                      formControlName="description"
                     ></textarea>
                   </div>
                 </div>

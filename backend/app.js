@@ -37,4 +37,5 @@ app.use("/api/clubs",clubsRoutes);
 app.use("/api/events",eventsRoutes);
 app.use("/api/user",userRoutes);
 
+
 module.exports = app;

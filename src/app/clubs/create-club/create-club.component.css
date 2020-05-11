@@ -1,51 +1,6 @@
 .container {
     margin-top: 100px;
-<<<<<<< HEAD
-    margin-bottom: 100px;
-    background-color: #ffffff;
-}
-.mat-card{
-    background-color: #ffffff;
 
-}
-.create-btn{
-    background-color: #FA9600;
-    margin-right: 50px;
-    margin-top: 20px;
-}
-.label{
-    color:black;
-    margin-left: 5px; 
-    font-size: large;
-    font-weight: bold;
-}
-.inputfield{
-    border: 2px solid #999999;
-    border-radius: 5px;
-}
-h1{
-    font-weight: bold;
-    font-size: x-large;
-}
-.form-control{
-    margin-left: 5px;
-}
-.create-btn1{
-    background-color: #007795;
-  }
-
-input[type="file"]{
-    visibility: hidden;
-}  
-.image-preview {
-    height: 5rem;
-    margin: 1rem 0;
-}
-
-.image-preview img {
-    height: 500;
-}
-=======
     margin-bottom: 75px;
     }
     col-2{
@@ -58,4 +13,13 @@ input[type="file"]{
     h3 {
       text-align: center;
     }
->>>>>>> 4f74cf6f5ca16b666ea39c68cea7e7b920e63639
+    input[type="file"]{
+      visibility: hidden;
+    }
+.image-preview{
+  height:5rem;
+  margin: 1rem 0;
+}
+.image-preview img{
+  height: 100%;
+}

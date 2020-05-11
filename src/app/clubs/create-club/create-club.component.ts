@@ -16,7 +16,7 @@ import {mimeType} from './mime-type.validator';
 export class CreateClubComponent implements OnInit {
   club: Club;
   form:FormGroup;
-  imagePreview: string;
+  imagePreview: string ;
   
   
   private mode ="create";
@@ -24,7 +24,8 @@ export class CreateClubComponent implements OnInit {
 
   private clubId :string;
   
-  constructor(public ClubsService: ClubsService ,  public route: ActivatedRoute) { }
+  constructor(public ClubsService: ClubsService ,
+      public route: ActivatedRoute) { }
 
   onAddClub() {
     
@@ -68,14 +69,15 @@ export class CreateClubComponent implements OnInit {
       }
     });
   }
-  onImagePicked(event: Event){
+  onImagePicked(event: any){
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({image: file});
     this.form.get('image').updateValueAndValidity();
     const reader = new FileReader();
-    reader.onload = () => {
+    reader.onload = (event: any) => {
       this.imagePreview =reader.result as string;
     };
+    
     reader.readAsDataURL(file);
   }
   

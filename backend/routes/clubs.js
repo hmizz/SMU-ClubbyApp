@@ -34,7 +34,7 @@ router.post("",multer({storage: storage}).single("image"),(req, res, next) => {
         description: req.body.description,
         category: req.body.category,
         event: [],
-        imagePath: url + "/images" + req.file.filename
+        imagePath: url + "/images/" + req.file.filename
     });
     club.save().then(createdClub => {
         res.status(201).json({
