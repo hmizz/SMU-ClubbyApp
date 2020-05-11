@@ -21,7 +21,24 @@ router.post("", (req, res, next) => {
         });
     });
 });
+
 router.put("/:id",(req,res,next)=>{
+  const event = new Event({
+    title: req.body.title,
+    organizer: req.body.organizer,
+    date: req.body.date,
+    time: req.body.time,
+    location: req.body.location,
+    description: req.body.description,
+    topic: req.body.topic,
+    _id : req.body.id
+});
+  Event.update({_id: req.params.id},event).then(result=>{
+    console.log(result);
+    res.status(200).json({message: "Update successful"});
+  });
+});
+router.put("/approve/:id",(req,res,next)=>{
 
     Event.updateOne({_id: req.params.id},{approved : true}).then(result=>{
       console.log(result);
@@ -57,11 +74,11 @@ router.get("", (req, res, next) => {
     });
 });
 
-router.get("/eventstoapprove", (req, res, next) => {
+router.patch("/eventstoapprove", (req, res, next) => {
   Event.find({approved: false}).then(documents => {
       res.status(200).json({
           message: 'events to approve sent succefully',
-          clubs: documents
+          events: documents
       });
   });
 });
