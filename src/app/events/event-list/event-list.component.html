@@ -11,7 +11,10 @@
             <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-3">
-                        <img src="../../assets/Events/Event1.png" class="card-img" alt="..." />
+                        <img 
+                        class="card-img-top"
+                        [src]="event.imagePath"
+                        [alt]="event.title" />
                     </div>
                     <div class="col-md-6 card-body">
                         <div class=" card-content ">
