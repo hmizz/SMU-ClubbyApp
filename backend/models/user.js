@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     fullName: {type:String, required:true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    accessLevel: {type: Number, min: 0, max: 3, default: 0},
+    accessLevel: {type: String, default: "Standard"},
     clubEnrolled: {type: []},
 });
 

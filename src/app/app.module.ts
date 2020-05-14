@@ -40,7 +40,11 @@ import { CreateClubComponent } from "./clubs/create-club/create-club.component";
 import { from } from 'rxjs';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { ProfileComponent } from './profile/profile.component'
+import { ProfileComponent } from './user-panel/profile/profile.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ClubRequestsComponent } from './user-panel/club-requests/club-requests.component';
+import { EventRequestsComponent } from './user-panel/event-requests/event-requests.component';
+import { MyclubsComponent } from './user-panel/myclubs/myclubs.component'
 
 @NgModule({
   declarations: [
@@ -65,6 +69,10 @@ import { ProfileComponent } from './profile/profile.component'
     clubListComponent,
     CreateClubComponent,
     ProfileComponent,
+    UserPanelComponent,
+    ClubRequestsComponent,
+    EventRequestsComponent,
+    MyclubsComponent,
   ],
   imports: [
     BrowserModule,

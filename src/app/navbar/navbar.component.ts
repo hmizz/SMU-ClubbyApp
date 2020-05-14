@@ -16,13 +16,15 @@ import { ClubsService } from "../clubs/clubs.service";
 export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
-  userAccess: Number;
+  userAccess: string;
   username: string;
   @Output() searchcriteria = new EventEmitter<String>();
   constructor(
     private authService: AuthService,
     private clubsService: ClubsService
-  ) {}
+  ) {
+    this.userAccess =this.authService.getAccessLevel();
+  }
 
   ngOnDestroy(): void {
     throw new Error("Method not implemented.");
@@ -37,12 +39,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe((isAuthenticated) => {
-        this.userIsAuthenticated = isAuthenticated;
         this.username = this.authService.getUsername();
-        this.userAccess =this.authService.getAccessLevel();
+        this.userIsAuthenticated = isAuthenticated;
+        
       });
   }
-  // displayclubs() {
-  //   this.clubsService.getClubs();
-  // }
 }

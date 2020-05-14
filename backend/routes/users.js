@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+const UserDetails = require("../models/userDetails");
 const router = express.Router();
 
 router.post("/signup", (req, res, next) => {
@@ -11,11 +12,29 @@ router.post("/signup", (req, res, next) => {
       fullName: req.body.fullname,
       email: req.body.email,
       password: hash,
-      accessLevel: 0,
+      accessLevel: "Standard",
     });
     user
       .save()
       .then((result) => {
+        const userDetails = new UserDetails({
+          firstName: "",
+          lastName: "",
+          gender: "",
+          doBirth: "",
+          level: "",
+          institute: "",
+          created_on: Date.now(),
+          modified_on: Date.now(),
+          description : null,    
+          user: result._id
+        });
+        userDetails.save()
+        .catch((err) => {
+          res.status(500).json({
+            error: err,
+          });
+        });
         res.status(201).json({
           message: "User created",
           result: result,
@@ -60,7 +79,8 @@ router.post("/login", (req, res, next) => {
         token: token,
          expiresIn: 3600,
         username: fetchedUser.fullName,
-        accessLevel : fetchedUser.accessLevel
+        accessLevel : fetchedUser.accessLevel,
+        id: fetchedUser._id
       });
     })
     .catch((err) => {
@@ -68,6 +88,46 @@ router.post("/login", (req, res, next) => {
         message: "Authentication failed",
       });
     });
+});
+
+router.patch("/:id",(req,res,next) => {
+  const userDetails = new UserDetails({
+    firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          gender: req.body.gender,
+          doBirth: req.body.doBirth,
+          level: req.body.level,
+          institute: req.body.institute,
+          created_on: req.body.created_on,
+          modified_on: Date.now,
+          description : req.body.description,    
+          user: result._id
+  })
+  UserDetails.findOneAndUpdate({user : req.params.id},userDetails).then((user) => {
+    res.status(200).json({
+      message : "opreration Success"
+    });
+  })
+  .catch((err) => {
+    res.status(401).json({
+      message : "opreration Failed"
+    });
+  });
+});
+
+router.get("/:id",(req,res,next) => {
+  UserDetails.findOne({user: req.params.id}).then((user) => {
+    res.status(200).json({
+      message : "operation succefull",
+      userDetails : user
+    });
+    console.log(user);
+  })
+  .catch((err) => {
+    res.status(401).json({
+      userDetails : null
+    });
+  });
 });
 
 module.exports = router;

@@ -47,8 +47,9 @@ export class ClubsService {
             return {
               title: club.title,
               description: club.description,
+              clubPresident: club.clubPresident,
               category: club.category,
-              events: club.events,
+              members: club.members,
               id: club._id,
             };
           });
