@@ -28,6 +28,7 @@ export class EventListService {
           organizer: event.organizer,
           date: event.date,
           time: event.time,
+          location: event.location,
           description: event.description,
           imagePath: event.imagePath,
         };

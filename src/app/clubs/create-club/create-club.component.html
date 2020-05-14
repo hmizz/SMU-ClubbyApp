@@ -1,4 +1,99 @@
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Create Your club</h3>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <form [formGroup]="form" (submit)="onAddClub()">
+                <div class="form-group row">
+                  <label for="club name" class="col-4 col-form-label"
+                    >Club Name</label>
+                  <div class="col-8">
+                    <input
+                      id="name"
+                      name="title"
+                      placeholder="Name your club"
+                      class="form-control here"
+                      
+                      type="text"
+                      formControlName="title"
+                    />
+                  </div>
+                </div>
+                <div class="image-pick-container">
+                  <button  class="btn btn-primary" type="button" (click)="filePicker.click()">Pick Image</button>
+                  <input type="file" #filePicker (change)="onImagePicked($event)">
+                </div>
+                <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview ">
+               
+                  <img [src]='imagePreview' [alt]="form.value.title">
+                </div>
+                  
+                
+                <div class="form-group row">
+                  <label for="text" class="col-4 col-form-label">Category</label>
+                  <div class="col-8">
+                    <select
+                      id="select"
+                      type="text"
+                      name="category"
+                      class="custom-select"
+                      formControlName="category"
+                    >
+                    <option selected>Academic</option>
+                    <option>Political</option>
+                    <option>Media & Publication</option>
+                    <option>Community Service & Social Justice</option>
+                    <option>Theater & The Arts</option>
+                    <option>Cultural</option>
+                    <option>Religious & Spiritual</option>
+                    <option>Sports </option>
+                    </select>
+                  </div>
+                </div>
+               
 
+                <div class="form-group row">
+                  <label for="publicinfo" class="col-4 col-form-label"
+                    >Describe the club</label
+                  >
+                  <div class="col-8">
+                    <textarea
+                      id="content"
+                      name="content"
+                      cols="40"
+                      rows="4"
+                      class="form-control"
+                      formControlName="description"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-9 col-3">
+                    <button name="submit" type="submit" class="btn btn-primary">
+                      Request club
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+-->
 <!--<div class="form-wrapper">
   <h1>Your Club</h1>
   <mat-card>
@@ -65,7 +160,7 @@
 </div>
  -->
  
-<div class="container">
+ <div class="container">
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -106,6 +201,7 @@
                     <img [src]='imagePreview' [alt]="form.value.title">
                   </div>  
                 </div>
+                <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview "></div>
                
                 <div class="form-group row">
                   <label for="text" class="col-4 col-form-label">Category</label>
