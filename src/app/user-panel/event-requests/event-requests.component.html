@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Events Requests</h4>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card" *ngFor="let event of events">
+            <div class="card-header">
+              {{ event.organizer }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ event.title }}</h5>
+              <p class="card-text">{{ event.description }}</p>
+              <hr>
+              <p class="card-text">{{ event.date }} at {{event.time}}</p>
+              <p class="card-text"> in {{ event.location }}</p>
+              <a class="btn btn-success" (click)="onApprove(event.id)"
+                >Approve Event</a
+              >
+              <a class="btn btn-danger" (click)="onDelete(event.id)"
+                >Delete Event</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action"
+          [class.active]="tab == 'tabOne'"
+          (click)="tab = 'tabOne'"
+          >Profile</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          *ngIf="userAccess == 'Admin'"
+          [class.active]="tab == 'tabTwo'"
+          (click)="tab = 'tabTwo'"
+          >Clubs Requests
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          *ngIf="userAccess == 'Admin'"
+          [class.active]="tab == 'tabThree'"
+          (click)="tab = 'tabThree'"
+          >Events Requests</a
+        >
+        <a class="list-group-item list-group-item-action disabled">myClubs</a>
+        <a class="list-group-item list-group-item-action disabled">Settings</a>
+      </div>
+    </div>
+    <div class="col-md-9" *ngIf="tab == 'tabOne'">
+      <app-profile></app-profile>
+    </div>
+    <div class="col-md-9" *ngIf="tab == 'tabTwo'">
+      <app-club-requests></app-club-requests>
+    </div>
+    <div class="col-md-9" *ngIf="tab == 'tabThree'">
+      <app-event-requests></app-event-requests>
+    </div>
+  </div>
+</div>

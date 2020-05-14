@@ -1,0 +1,158 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Your Profile</h4>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form (submit)="onUpdateUser(userForm)" #userForm="ngForm">
+          <div class="form-group row">
+            <label for="name" class="col-4 col-form-label">First Name</label>
+            <div class="col-8">
+              <input
+                id="name"
+                name="firstName"
+                placeholder="First Name"
+                class="form-control here"
+                type="text"
+                [ngModel]="userInfo?.firstName"
+                #firstName="ngModel"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastname" class="col-4 col-form-label">Last Name</label>
+            <div class="col-8">
+              <input
+                id="lastname"
+                name="lastName"
+                placeholder="Last Name"
+                class="form-control here"
+                type="text"
+                [ngModel]="userInfo?.lastName"
+                #lastName="ngModel"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="select" class="col-4 col-form-label">Gender</label>
+            <div class="col-8">
+              <select
+                id="select"
+                name="gender"
+                class="custom-select"
+                [ngModel]="userInfo?.gender"
+                #gender="ngModel"
+                disabled
+                >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dOB" class="col-4 col-form-label">Date of Birth</label>
+            <div class="input-group col-8">
+              <input
+                placeholder="pick a date"
+                class="form-control mb-2"
+                [matDatepicker]="myDatepicker"
+                name="doBirth"
+                [ngModel]="userInfo?.doBirth"
+                #doBirth="ngModel"
+                readonly
+              />
+              
+              <div class="input-group-append mb-2">
+                <button
+                  class="btn btn-primary calendar datepicker"
+                  (click)="myDatepicker.open()"
+                  type="button"
+                >
+                  <img
+                    src="../../assets/Icons/Calendar.svg"
+                    width="18px"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="select" class="col-4 col-form-label">Institute</label>
+            <div class="col-8">
+              <select
+                id="select"
+                name="institute"
+                class="custom-select"
+                [ngModel]="userInfo?.institute"
+                #institute="ngModel"
+                disabled
+                >
+                <option value="MSB">MSB</option>
+                <option value="MedTech">MedTech</option>
+                <option value="LCI">LCI</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="select" class="col-4 col-form-label">Level</label>
+            <div class="col-8">
+              <select
+                id="select"
+                name="level"
+                class="custom-select"
+                [ngModel]="userInfo?.level"
+                #level="ngModel"
+                disabled
+                >
+                <option value="L1">L1</option>
+                <option value="L2">L2</option>
+                <option value="L3">LCI</option>
+                <option value="M1">LCI</option>
+                <option value="M2">LCI</option>
+                <option value="Freshmen">Freshmen</option>
+                <option value="Sohomore">Sophomore</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Final">Final</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="publicinfo" class="col-4 col-form-label"
+              >Describe Yourself</label
+            >
+            <div class="col-8">
+              <textarea
+                id="publicinfo"
+                name="description"
+                cols="40"
+                rows="4"
+                class="form-control"
+                [ngModel]="userInfo?.description"
+                #description="ngModel"
+                readonly
+              >
+></textarea
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-4 col-8">
+              <button name="submit" type="submit" class="btn btn-primary"disabled>
+                Update My Profile
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
