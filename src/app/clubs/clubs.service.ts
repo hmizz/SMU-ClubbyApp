@@ -123,10 +123,10 @@ export class ClubsService {
     });
   }
 
-  deleteClub(eventId: string){
-    this.http.delete("http://localhost:3000/api/clubs/" + eventId)
+  deleteClub(clubId: string){
+    this.http.delete("http://localhost:3000/api/clubs/" + clubId)
     .subscribe(()=>{
-      const clubsWaitingUpdated = this.clubsWaiting.filter(event => event.id !== eventId);
+      const clubsWaitingUpdated = this.clubsWaiting.filter(club => club.id !== clubId);
       this.clubsWaiting = clubsWaitingUpdated;
       this.clubsWaitingUpdated.next([...this.clubsWaiting]);
     })
