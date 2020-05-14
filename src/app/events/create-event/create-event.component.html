@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-2"></div>
@@ -40,35 +39,39 @@
                       placeholder="Who are you ?"
                       class="form-control here"
                       type="text"
+                      [ngModel]="event?.organizer"
+                      required
+                      minlength="3"
+                      #organizer="ngModel"
+                      
                       formControlName="organizer"
                     />
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="lastname" class="col-4 col-form-label">On</label>
-                  <div class="col-6">
+                  <div class="input-group col-8">
                     <input
                       placeholder="pick a date"
-                      class="form-control mb-2 mr-sm-2"
+                      class="form-control mb-2"
                       [matDatepicker]="myDatepicker"
                       name="date"
                       formControlName="date"
                     />
-
+                    <div class="input-group-append  mb-2">
+                      <button
+                    class="btn btn-primary calendar datepicker"
+                    (click)="myDatepicker.open()"
+                    type="button"
+                  >
+                    <img
+                      src="../../assets/Icons/Calendar.svg"
+                      width="18px"
+                      alt=""
+                    />
+                  </button>
+                    </div>
                     <mat-datepicker #myDatepicker></mat-datepicker>
-                  </div>
-                  <div class="input-group-addon">
-                    <button
-                      class="btn btn-primary calendar datepicker"
-                      (click)="myDatepicker.open()"
-                      type="button"
-                    >
-                      <img
-                        src="../../assets/Icons/Calendar.svg"
-                        width="18px"
-                        alt=""
-                      />
-                    </button>
                   </div>
                 </div>
                 <div class="form-group row">

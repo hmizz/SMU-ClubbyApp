@@ -42,7 +42,7 @@ export class EventListService {
 
   getEventsWaiting() {
     this.http
-      .get<{ message: string; events: any }>("http://localhost:3000/api/Events/Eventstoapprove")
+      .patch<{ message: string; events: any }>("http://localhost:3000/api/events/eventstoapprove", false)
       .pipe(
         map((eventData) => {
           return eventData.events.map((event) => {
@@ -132,7 +132,7 @@ export class EventListService {
 
   approveEvent(eventId : string){
     this.http
-    .put("http://localhost:3000/api/events/"+ eventId, eventId)
+    .put("http://localhost:3000/api/events/approve/"+ eventId, eventId)
     .subscribe(response => {
       const eventsUpdated = [...this.events];
       this.events = eventsUpdated;
